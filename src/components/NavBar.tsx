@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLang } from '../context/LanguageContext';
 import { t, tx } from '../data/translations';
+import { SOCIAL_LINKS } from '../data/profileData';
 
 function scrollToSection(anchor: string) {
   if (anchor === 'top') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
@@ -19,8 +20,8 @@ const NAV_LINKS = [
   { key: 'constituency',    anchor: 'constituency' },
   { key: 'ysrSchemes',      anchor: null,       hasDropdown: true },
   { key: 'photoGallery',    anchor: 'gallery' },
+  { key: 'videosMedia',     anchor: 'videos' },
   { key: 'inTheNews',       anchor: 'news' },
-  { key: 'downloadProfile', anchor: 'download' },
   { key: 'contactOffice',   anchor: 'contact' },
 ] as const;
 
@@ -135,7 +136,7 @@ export const NavBar: React.FC = () => {
           </div>
         </div>
 
-        {/* Right: Telugu toggle + social icons */}
+        {/* Right: Telugu toggle + official social icons */}
         <div className="hidden sm:flex items-center gap-1 pr-2 flex-shrink-0">
           {/* ── TELUGU / ENGLISH TOGGLE BUTTON ── */}
           <button
@@ -150,15 +151,19 @@ export const NavBar: React.FC = () => {
             {lang === 'en' ? 'తెలుగు' : 'English'}
           </button>
 
-          <a href="https://facebook.com" target="_blank" rel="noreferrer"
+          <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" title="Facebook Profile"
             className="w-8 h-8 flex items-center justify-center bg-[#1877F2] hover:opacity-90 rounded text-xs font-bold ml-1">
             f
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer"
-            className="w-8 h-8 flex items-center justify-center bg-[#1DA1F2] hover:opacity-90 rounded text-xs">
-            🐦
+          <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" title="Instagram Profile"
+            className="w-8 h-8 flex items-center justify-center bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:opacity-90 rounded text-xs font-bold">
+            📷
           </a>
-          <a href="https://youtube.com" target="_blank" rel="noreferrer"
+          <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noreferrer" title="X (Twitter) Profile"
+            className="w-8 h-8 flex items-center justify-center bg-[#1DA1F2] hover:opacity-90 rounded text-xs font-bold">
+            𝕏
+          </a>
+          <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noreferrer" title="YouTube Channel"
             className="w-8 h-8 flex items-center justify-center bg-[#FF0000] hover:opacity-90 rounded text-xs">
             ▶
           </a>

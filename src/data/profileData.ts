@@ -62,11 +62,78 @@ export const LEADER_INFO: LeaderInfo = {
   email: 'office@ysrcp-chittoor.in',
 };
 
-export interface NavItem {
-  label: string;
-  anchor?: string;
-  hasDropdown?: boolean;
+export interface SocialLinks {
+  youtube: string;
+  instagram: string;
+  twitter: string;
+  facebook: string;
 }
+
+export const SOCIAL_LINKS: SocialLinks = {
+  youtube: 'https://www.youtube.com/@mcvijayanandareddy4187/featured',
+  instagram: 'https://www.instagram.com/mc_vijayanandareddy?igsh=YzI5d292Y2ZzOHQ%3D',
+  twitter: 'https://x.com/McVNR1234',
+  facebook: 'https://www.facebook.com/VijayanandaReddyMC?rdid=PBYCprlSB4wjtvKY&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1JVyM9rPwT%2F%3Fref%3D1#',
+};
+
+export interface YouTubeVideo {
+  id: string;
+  title: string;
+  titleTe: string;
+  videoUrl: string;
+  embedUrl: string;
+  thumbnailUrl: string;
+  duration: string;
+  date: string;
+  views: string;
+}
+
+export const YOUTUBE_VIDEOS: YouTubeVideo[] = [
+  {
+    id: 'RfVZrCg-rMs',
+    title: 'Chittoor YSRCP Candidate MC Vijayananda Reddy about His Win in AP Elections | Today\'s Leader',
+    titleTe: 'చిత్తూరు ఏపీ ఎన్నికల విజయంపై ఎంసి విజయానంద రెడ్డి ముఖాముఖి | టుడేస్ లీడర్',
+    videoUrl: 'https://www.youtube.com/watch?v=RfVZrCg-rMs',
+    embedUrl: 'https://www.youtube.com/embed/RfVZrCg-rMs',
+    thumbnailUrl: 'https://img.youtube.com/vi/RfVZrCg-rMs/hqdefault.jpg',
+    duration: '06:15',
+    date: 'AP Elections',
+    views: 'Featured Interview',
+  },
+  {
+    id: 'Z-2RPPzSUZA',
+    title: 'MC Vijayananda Reddy Address to Chittoor Constituency Cadre & Public Rally',
+    titleTe: 'చిత్తూరు నియోజకవర్గ కార్యకర్తల సమావేశంలో ఎంసి విజయానంద రెడ్డి ప్రసంగం',
+    videoUrl: 'https://www.youtube.com/watch?v=Z-2RPPzSUZA',
+    embedUrl: 'https://www.youtube.com/embed/Z-2RPPzSUZA',
+    thumbnailUrl: 'https://img.youtube.com/vi/Z-2RPPzSUZA/hqdefault.jpg',
+    duration: '08:40',
+    date: 'Public Speech',
+    views: 'YSRCP Campaign',
+  },
+  {
+    id: '00dds5fFmZo',
+    title: 'MC Vijayananda Reddy Press Conference & Development Blueprint for Chittoor',
+    titleTe: 'చిత్తూరు సమగ్ర అభివృద్ధి ప్రణాళికపై ఎంసి విజయానంద రెడ్డి పత్రికా సమావేశం',
+    videoUrl: 'https://www.youtube.com/watch?v=00dds5fFmZo',
+    embedUrl: 'https://www.youtube.com/embed/00dds5fFmZo',
+    thumbnailUrl: 'https://img.youtube.com/vi/00dds5fFmZo/hqdefault.jpg',
+    duration: '10:15',
+    date: 'Press Conference',
+    views: 'Media Address',
+  },
+  {
+    id: 'xt2F8Td6FcE',
+    title: 'Navaratnalu Welfare Scheme Reach & Grassroots Campaign in Chittoor Mandals',
+    titleTe: 'చిత్తూరు మండలాల్లో నవరత్నాల సంక్షేమ పథకాల విస్తృత ప్రచారం',
+    videoUrl: 'https://www.youtube.com/watch?v=xt2F8Td6FcE',
+    embedUrl: 'https://www.youtube.com/embed/xt2F8Td6FcE',
+    thumbnailUrl: 'https://img.youtube.com/vi/xt2F8Td6FcE/hqdefault.jpg',
+    duration: '05:30',
+    date: 'Welfare Campaign',
+    views: 'Chittoor Outreach',
+  },
+];
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', anchor: 'top' },
@@ -75,8 +142,8 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Constituency', anchor: 'constituency' },
   { label: 'YSR Schemes', hasDropdown: true },
   { label: 'Photo Gallery', anchor: 'gallery' },
-  { label: 'In The News', anchor: 'news' },
-  { label: 'Download Profile', anchor: 'download' },
+  { label: 'Videos', anchor: 'videos' },
+  { label: 'News', anchor: 'news' },
   { label: 'Contact Office', anchor: 'contact' },
 ];
 

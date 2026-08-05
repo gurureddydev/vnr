@@ -8,9 +8,18 @@ export const t = {
     constituency: { en: 'Constituency', te: 'నియోజకవర్గం' },
     ysrSchemes: { en: 'YSR Schemes', te: 'వైఎస్ పథకాలు' },
     photoGallery: { en: 'Photo Gallery', te: 'ఫోటో గ్యాలరీ' },
-    inTheNews: { en: 'In The News', te: 'వార్తలలో' },
-    downloadProfile: { en: 'Download Profile', te: 'ప్రొఫైల్ డౌన్లోడ్' },
+    videosMedia: { en: 'Videos', te: 'వీడియోలు' },
+    inTheNews: { en: 'News', te: 'వార్తలు' },
     contactOffice: { en: 'Contact Office', te: 'కార్యాలయం' },
+  },
+
+  // ── VIDEOS SECTION ──────────────────────────────────────────────────
+  videos: {
+    sectionTitle: { en: 'Videos (YouTube)', te: 'యూట్యూబ్ వీడియోలు' },
+    sectionTag: { en: 'Official Channel', te: 'అధికారిక ఛానెల్' },
+    subscribeBtn: { en: 'Subscribe on YouTube ▶', te: 'యూట్యూబ్‌లో సబ్‌స్క్రైబ్ చేయండి ▶' },
+    watchVideo: { en: 'Watch Video ▶', te: 'వీడియో చూడండి ▶' },
+    moreVideos: { en: 'View All YouTube Videos »', te: 'అన్ని వీడియోలు చూడండి »' },
   },
 
   // ── YSR SCHEMES DROPDOWN ─────────────────────────────────────────────
@@ -175,7 +184,7 @@ export const t = {
 
   // ── NEWS ─────────────────────────────────────────────────────────────
   news: {
-    sectionTitle: { en: 'Recent News & Updates', te: 'తాజా వార్తలు & అప్‌డేట్లు' },
+    sectionTitle: { en: 'News & Updates', te: 'వార్తలు & విశేషాలు' },
     sectionTag: { en: 'Chittoor Constituency', te: 'చిత్తూరు నియోజకవర్గం' },
     readMore: { en: 'Read more »', te: 'మరింత చదవండి »' },
     viewAll: { en: 'View All News →', te: 'అన్ని వార్తలు చూడండి →' },

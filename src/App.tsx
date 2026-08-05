@@ -15,49 +15,52 @@ export default function App() {
 
   return (
     <LanguageProvider>
-    <div className="bg-[#f0f0f0] min-h-screen text-[#333333] font-['Open_Sans',Arial,sans-serif] antialiased selection:bg-[#0B8F45] selection:text-white">
-      {/* ─── YSRCP HEADER BANNER ─── */}
-      <Header />
+      <div className="bg-[#dcdcdc] min-h-screen text-[#333333] font-['Open_Sans',Arial,sans-serif] antialiased selection:bg-[#0B8F45] selection:text-white py-0 md:py-3">
+        {/* Centered Boxed Site Shell (Matches ysrcongress.com) */}
+        <div className="max-w-[1200px] mx-auto bg-white shadow-2xl border-x border-[#cccccc] min-h-screen flex flex-col">
+          {/* ─── YSRCP HEADER BANNER ─── */}
+          <Header />
 
-      {/* ─── PARTY NAVIGATION STRIP ─── */}
-      <NavBar />
+          {/* ─── PARTY NAVIGATION STRIP ─── */}
+          <NavBar />
 
-      {/* ─── REALTIME NEWS TICKER ─── */}
-      <NewsTicker />
+          {/* ─── REALTIME NEWS TICKER ─── */}
+          <NewsTicker />
 
-      {/* ─── BREADCRUMB ─── */}
-      <Breadcrumb />
+          {/* ─── BREADCRUMB ─── */}
+          <Breadcrumb />
 
-      {/* ─── PAGE HEADING STRIP ─── */}
-      <PageHeaderStrip />
+          {/* ─── PAGE HEADING STRIP ─── */}
+          <PageHeaderStrip />
 
-      {/* ─── 3-COLUMN DESKTOP MAIN LAYOUT ─── */}
-      <main className="max-w-[1200px] mx-auto px-3 py-3.5">
-        <div className="flex flex-col lg:flex-row gap-3.5 items-start">
+          {/* ─── 3-COLUMN DESKTOP MAIN LAYOUT ─── */}
+          <main className="px-3 py-3.5 flex-1">
+            <div className="flex flex-col lg:flex-row gap-3.5 items-start">
 
-          {/* LEFT COLUMN: Leader Profile Card */}
-          <div className="w-full lg:w-[240px] flex-shrink-0">
-            <ProfileCard onContactClick={() => setIsContactOpen(true)} />
-          </div>
+              {/* LEFT COLUMN: Leader Profile Card */}
+              <div className="w-full lg:w-[250px] flex-shrink-0">
+                <ProfileCard onContactClick={() => setIsContactOpen(true)} />
+              </div>
 
-          {/* CENTER COLUMN: Biography, Timeline, Gallery, News */}
-          <CenterColumn />
+              {/* CENTER COLUMN: Biography, Timeline, Gallery, Videos, News */}
+              <CenterColumn />
 
-          {/* RIGHT COLUMN: Info Cards, Election Details, Positions */}
-          <RightSidebar onContactClick={() => setIsContactOpen(true)} />
+              {/* RIGHT COLUMN: Info Cards, Election Details, Positions */}
+              <RightSidebar onContactClick={() => setIsContactOpen(true)} />
 
+            </div>
+          </main>
+
+          {/* ─── FOOTER ─── */}
+          <Footer />
         </div>
-      </main>
 
-      {/* ─── FOOTER ─── */}
-      <Footer />
-
-      {/* ─── CONTACT OFFICE INTERACTIVE MODAL ─── */}
-      <ContactModal
-        isOpen={isContactOpen}
-        onClose={() => setIsContactOpen(false)}
-      />
-    </div>
+        {/* ─── CONTACT OFFICE INTERACTIVE MODAL ─── */}
+        <ContactModal
+          isOpen={isContactOpen}
+          onClose={() => setIsContactOpen(false)}
+        />
+      </div>
     </LanguageProvider>
   );
 }

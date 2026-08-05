@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GALLERY_PHOTOS, GalleryPhoto } from '../data/profileData';
+import { GALLERY_PHOTOS, GalleryPhoto, YOUTUBE_VIDEOS, YouTubeVideo, SOCIAL_LINKS } from '../data/profileData';
 import { useLang } from '../context/LanguageContext';
 import { t, tx } from '../data/translations';
 
@@ -164,6 +164,7 @@ export const CenterColumn: React.FC = () => {
   const { lang } = useLang();
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryPhoto | null>(null);
   const [selectedNewsIdx, setSelectedNewsIdx] = useState<number | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<YouTubeVideo | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const selectedNews = selectedNewsIdx !== null ? t.news.items[selectedNewsIdx] : null;
@@ -284,28 +285,33 @@ export const CenterColumn: React.FC = () => {
           <span>{tx(t.gallery.sectionTitle, lang)}</span>
           <span className="text-[10px] text-white/80 font-normal">{tx(t.gallery.clickHint, lang)}</span>
         </div>
-        <div className="gallery-grid grid grid-cols-2 gap-2 p-3">
+        <div className="gallery-grid grid grid-cols-1 sm:grid-cols-2 gap-3 p-3">
           {GALLERY_PHOTOS.map((photo, idx) => (
             <div
               key={photo.id}
               onClick={() => setSelectedPhoto(photo)}
-              className="group border border-[#E3E3E3] bg-[#f9f9f9] overflow-hidden cursor-pointer hover:border-[#0E4FAE] transition-all"
+              className="group border border-[#E3E3E3] bg-[#f9f9f9] overflow-hidden cursor-pointer hover:border-[#0E4FAE] transition-all rounded-xs flex flex-col"
             >
-              <div className="relative h-32 sm:h-36 overflow-hidden">
+              <div className="relative h-56 sm:h-64 bg-slate-900 overflow-hidden flex items-center justify-center p-1.5">
                 <img
                   src={photo.imageUrl}
                   alt={t.gallery.photos[idx]?.[lang] ?? photo.label}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-103"
                   loading="lazy"
+                  onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
                 />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="bg-white/90 text-black text-xs font-bold px-2 py-1 rounded-xs shadow-md">
-                    🔍 {lang === 'en' ? 'View Photo' : 'ఫోటో చూడండి'}
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="bg-white/95 text-[#0E4FAE] text-xs font-bold px-3 py-1.5 rounded-xs shadow-lg flex items-center gap-1.5">
+                    <span>🔍</span>
+                    <span>{lang === 'en' ? 'View Full Photo' : 'పూర్తి ఫోటో చూడండి'}</span>
                   </span>
                 </div>
               </div>
-              <div className="p-2 bg-[#f5f5f5] text-[11px] text-[#555555] font-semibold border-t border-[#E3E3E3] truncate">
-                {t.gallery.photos[idx]?.[lang] ?? photo.label}
+              <div className="p-2.5 bg-[#f8f9fa] text-xs text-[#333] font-bold border-t border-[#E3E3E3] flex justify-between items-center">
+                <span className="truncate">{t.gallery.photos[idx]?.[lang] ?? photo.label}</span>
+                <span className="text-[10px] text-[#0B8F45] font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 flex-shrink-0 ml-2">
+                  {photo.date}
+                </span>
               </div>
             </div>
           ))}
@@ -313,6 +319,113 @@ export const CenterColumn: React.FC = () => {
         <div className="text-right px-3 py-2 border-t border-[#E3E3E3] bg-[#fafafa]">
           <a href="#" className="more-link text-[#cc0000] text-xs font-bold hover:underline">
             {lang === 'en' ? 'More Photos »' : 'మరిన్ని ఫోటోలు »'}
+          </a>
+        </div>
+      </div>
+
+      {/* ─── VIDEOS (YOUTUBE) ─── */}
+      <div id="videos" className="widget-box card-hover bg-white border border-[#E3E3E3] shadow-xs">
+        <div className="section-title bg-[#0E4FAE] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-red-400 font-extrabold text-sm">▶</span>
+            <span>{tx(t.videos.sectionTitle, lang)}</span>
+          </div>
+          <a
+            href={SOCIAL_LINKS.youtube}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[10px] bg-red-600 hover:bg-red-700 text-white font-bold px-2 py-0.5 rounded-xs tracking-wider transition-colors"
+          >
+            {tx(t.videos.subscribeBtn, lang)}
+          </a>
+        </div>
+
+        <div className="p-3 space-y-3">
+          {/* Featured Video (Top / Main) */}
+          {YOUTUBE_VIDEOS[0] && (
+            <div className="border border-[#E3E3E3] bg-[#f9f9f9] overflow-hidden group hover:border-[#0E4FAE] transition-all">
+              <div className="relative aspect-video w-full bg-black">
+                <iframe
+                  src={YOUTUBE_VIDEOS[0].embedUrl}
+                  title={YOUTUBE_VIDEOS[0].title}
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-3 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-t border-[#E3E3E3]">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="bg-red-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-xs uppercase">
+                      Featured Interview
+                    </span>
+                    <span className="text-[11px] text-gray-500 font-semibold">{YOUTUBE_VIDEOS[0].date}</span>
+                  </div>
+                  <h3 className="font-bold text-xs sm:text-sm text-[#111] leading-snug">
+                    {lang === 'en' ? YOUTUBE_VIDEOS[0].title : YOUTUBE_VIDEOS[0].titleTe}
+                  </h3>
+                </div>
+                <a
+                  href={YOUTUBE_VIDEOS[0].videoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-shrink-0 bg-[#0E4FAE] hover:bg-[#0a3d8a] text-white text-xs font-bold px-3 py-1.5 rounded-xs transition-colors text-center"
+                >
+                  Watch on YouTube ↗
+                </a>
+              </div>
+            </div>
+          )}
+
+          {/* Secondary Videos Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            {YOUTUBE_VIDEOS.slice(1).map((video) => (
+              <div
+                key={video.id}
+                onClick={() => setSelectedVideo(video)}
+                className="group border border-[#E3E3E3] bg-[#f9f9f9] overflow-hidden cursor-pointer hover:border-[#0E4FAE] transition-all flex flex-col justify-between"
+              >
+                <div className="relative aspect-video overflow-hidden bg-black">
+                  <img
+                    src={video.thumbnailUrl}
+                    alt={lang === 'en' ? video.title : video.titleTe}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                    loading="lazy"
+                    onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                  />
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-red-600 group-hover:bg-red-700 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
+                      <span className="text-xs ml-0.5">▶</span>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-[10px] font-mono font-bold px-1.5 py-0.5 rounded">
+                    {video.duration}
+                  </div>
+                </div>
+                <div className="p-2.5 flex-1 flex flex-col justify-between bg-white">
+                  <h4 className="font-bold text-xs text-[#222] leading-snug line-clamp-2 group-hover:text-[#0E4FAE] transition-colors mb-1.5">
+                    {lang === 'en' ? video.title : video.titleTe}
+                  </h4>
+                  <div className="flex items-center justify-between text-[10px] text-gray-500 font-medium">
+                    <span>{video.date}</span>
+                    <span className="text-[#0B8F45] font-bold">👁 {video.views}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-right px-3 py-2 border-t border-[#E3E3E3] bg-[#fafafa]">
+          <a
+            href={SOCIAL_LINKS.youtube}
+            target="_blank"
+            rel="noreferrer"
+            className="more-link text-[#cc0000] text-xs font-bold hover:underline"
+          >
+            {tx(t.videos.moreVideos, lang)}
           </a>
         </div>
       </div>
@@ -326,12 +439,15 @@ export const CenterColumn: React.FC = () => {
         <div className="divide-y divide-[#E3E3E3]">
           {t.news.items.map((item, idx) => (
             <div key={idx} className="news-list-item news-item p-3 flex gap-3 items-start hover:bg-blue-50/30 transition-colors">
-              <img
-                src={GALLERY_PHOTOS[idx % GALLERY_PHOTOS.length].imageUrl}
-                alt={item[lang].headline}
-                className="w-20 h-16 sm:w-24 object-cover border border-[#E3E3E3] flex-shrink-0"
-                loading="lazy"
-              />
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-slate-900 overflow-hidden flex items-center justify-center flex-shrink-0 border border-[#E3E3E3] rounded-xs p-0.5">
+                <img
+                  src={GALLERY_PHOTOS[idx % GALLERY_PHOTOS.length].imageUrl}
+                  alt={item[lang].headline}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                  onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                />
+              </div>
               <div className="flex-1 min-w-0">
                 <h4 className="news-title font-bold text-xs sm:text-[13px] text-[#222222] leading-snug mb-1 hover:text-[#0E4FAE]">
                   {item[lang].headline}
@@ -358,6 +474,42 @@ export const CenterColumn: React.FC = () => {
         </div>
       </div>
 
+      {/* ─── YOUTUBE VIDEO PLAYER MODAL ─── */}
+      {selectedVideo && (
+        <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+          <div className="bg-white rounded-xs max-w-2xl w-full overflow-hidden border-2 border-[#0E4FAE] shadow-2xl">
+            <div className="bg-[#0E4FAE] text-white p-3 flex items-center justify-between font-bold text-xs">
+              <span className="truncate pr-2">{lang === 'en' ? selectedVideo.title : selectedVideo.titleTe}</span>
+              <button onClick={() => setSelectedVideo(null)} className="text-white hover:text-red-200 text-base font-black px-2 flex-shrink-0" aria-label="Close">✕</button>
+            </div>
+            <div className="p-2 bg-black aspect-video flex items-center justify-center">
+              <iframe
+                src={`${selectedVideo.embedUrl}?autoplay=1`}
+                title={selectedVideo.title}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="p-3 bg-gray-100 text-xs text-gray-700 flex justify-between items-center border-t border-gray-200">
+              <div>
+                <span className="font-bold text-gray-900">{selectedVideo.views}</span>
+                <span className="mx-1 text-gray-400">•</span>
+                <span>{selectedVideo.date}</span>
+              </div>
+              <a
+                href={SOCIAL_LINKS.youtube}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-xs transition-colors"
+              >
+                {tx(t.videos.subscribeBtn, lang)}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ─── PHOTO LIGHTBOX MODAL ─── */}
       {selectedPhoto && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" role="dialog" aria-modal="true">
@@ -366,8 +518,13 @@ export const CenterColumn: React.FC = () => {
               <span>{selectedPhoto.label}</span>
               <button onClick={() => setSelectedPhoto(null)} className="text-white hover:text-red-200 text-base font-black px-2" aria-label="Close">✕</button>
             </div>
-            <div className="p-3 bg-black flex items-center justify-center max-h-[70vh]">
-              <img src={selectedPhoto.imageUrl} alt={selectedPhoto.label} className="max-h-[65vh] w-auto object-contain" />
+            <div className="p-3 bg-slate-950 flex items-center justify-center max-h-[75vh]">
+              <img
+                src={selectedPhoto.imageUrl}
+                alt={selectedPhoto.label}
+                className="max-h-[70vh] w-auto object-contain"
+                onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+              />
             </div>
             <div className="p-3 bg-gray-100 text-xs text-gray-700 flex justify-between items-center border-t border-gray-200">
               <span className="font-semibold">{selectedPhoto.label} ({selectedPhoto.date})</span>
@@ -392,11 +549,14 @@ export const CenterColumn: React.FC = () => {
                 {selectedNews[lang].category}
               </span>
               <h3 className="text-sm font-bold text-gray-900 leading-snug">{selectedNews[lang].headline}</h3>
-              <img
-                src={GALLERY_PHOTOS[selectedNewsIdx % GALLERY_PHOTOS.length].imageUrl}
-                alt={selectedNews[lang].headline}
-                className="w-full h-44 object-cover border border-gray-300"
-              />
+              <div className="h-56 bg-slate-900 overflow-hidden flex items-center justify-center p-1.5 border border-gray-300 rounded-xs">
+                <img
+                  src={GALLERY_PHOTOS[selectedNewsIdx % GALLERY_PHOTOS.length].imageUrl}
+                  alt={selectedNews[lang].headline}
+                  className="w-full h-full object-contain"
+                  onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                />
+              </div>
               <p className="text-xs text-gray-700 leading-relaxed">{selectedNews[lang].summary}</p>
             </div>
             <div className="p-3 bg-gray-100 text-right border-t border-gray-200">

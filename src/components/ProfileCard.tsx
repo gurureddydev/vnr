@@ -33,57 +33,82 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ onContactClick }) => {
 
   return (
     <div className="widget-box card-hover bg-white border border-[#E3E3E3] shadow-xs mb-3.5 overflow-hidden">
-      {/* Large Leader Portrait Container */}
-      <div className="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden border-b border-[#E3E3E3] group">
-        <img
-          src={activePhoto.src}
-          alt={LEADER_INFO.name}
-          className="w-full h-full object-cover object-top transition-all duration-300 group-hover:scale-102"
-        />
-        {/* Subtle Watermark Badge */}
-        <div className="absolute top-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded-xs backdrop-blur-xs">
-          {activePhoto.badge}
+      {/* Circular Leader Portrait Container (Premium YSRCP Design) */}
+      <div className="p-4 text-center border-b border-[#E3E3E3] bg-gradient-to-b from-[#f4f7fc] to-[#fafafa]">
+        {/* Photo Carousel Container with Side Arrows */}
+        <div className="relative flex items-center justify-center gap-3 mb-2.5">
+          <button
+            onClick={() => setActivePhotoIdx((prev) => (prev === 0 ? PROFILE_PHOTOS.length - 1 : prev - 1))}
+            className="w-8 h-8 rounded-full bg-white hover:bg-[#0E4FAE] text-[#0E4FAE] hover:text-white border border-[#d1d5db] shadow-md hover:shadow-lg transition-all flex items-center justify-center text-sm font-black cursor-pointer flex-shrink-0"
+            title="Previous Photo"
+            aria-label="Previous Photo"
+          >
+            ‹
+          </button>
+          
+          <div className="relative w-40 h-40 sm:w-44 sm:h-44 rounded-full p-[3px] bg-gradient-to-tr from-[#0E4FAE] via-[#0B8F45] to-[#0E4FAE] shadow-xl hover:shadow-2xl transition-all duration-300 group">
+            <div className="w-full h-full rounded-full border-2 border-white overflow-hidden bg-slate-900">
+              <img
+                src={activePhoto.src}
+                alt={LEADER_INFO.name}
+                className="w-full h-full object-cover object-[center_15%] transition-transform duration-500 group-hover:scale-105"
+                onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+              />
+            </div>
+          </div>
+
+          <button
+            onClick={() => setActivePhotoIdx((prev) => (prev === PROFILE_PHOTOS.length - 1 ? 0 : prev + 1))}
+            className="w-8 h-8 rounded-full bg-white hover:bg-[#0E4FAE] text-[#0E4FAE] hover:text-white border border-[#d1d5db] shadow-md hover:shadow-lg transition-all flex items-center justify-center text-sm font-black cursor-pointer flex-shrink-0"
+            title="Next Photo"
+            aria-label="Next Photo"
+          >
+            ›
+          </button>
         </div>
 
-        {/* Image switcher thumbnail bar overlaid at bottom */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2 py-1 rounded-full shadow-lg border border-white/20">
+        {/* Carousel Indicators & Active Badge */}
+        <div className="flex items-center justify-center gap-1.5 mb-3">
           {PROFILE_PHOTOS.map((photo, idx) => (
             <button
               key={idx}
               onClick={() => setActivePhotoIdx(idx)}
-              className={`w-6 h-6 rounded-full overflow-hidden border-2 transition-all ${
-                activePhotoIdx === idx
-                  ? 'border-[#0B8F45] scale-110 shadow-sm'
-                  : 'border-white/50 opacity-70 hover:opacity-100'
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                idx === activePhotoIdx ? 'w-5 bg-[#0E4FAE]' : 'w-2 bg-gray-300 hover:bg-gray-400'
               }`}
               title={photo.label}
-            >
-              <img src={photo.src} alt={photo.label} className="w-full h-full object-cover object-top" />
-            </button>
+              aria-label={photo.label}
+            />
           ))}
+          <span className="ml-2 text-[10px] font-extrabold text-[#0B8F45] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 uppercase tracking-wider">
+            {activePhoto.badge}
+          </span>
+        </div>
+
+        {/* Leader Name */}
+        <h2 className="font-extrabold text-base sm:text-lg text-[#111111] leading-tight mb-1">
+          Sri {LEADER_INFO.name}
+        </h2>
+        <div className="text-xs font-bold text-[#0E4FAE] mb-2">
+          {LEADER_INFO.status} ({LEADER_INFO.constituency})
+        </div>
+        <p className="text-[11px] text-gray-600 leading-snug mb-3 px-2">
+          Senior YSRCP Leader & Assembly In-Charge for Chittoor Constituency. Committed to public welfare, rural empowerment, and sustainable development.
+        </p>
+
+        {/* Badges */}
+        <div className="flex justify-center flex-wrap gap-1.5">
+          <span className="bg-[#0B8F45] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-xs tracking-wider uppercase shadow-xs">
+            {LEADER_INFO.party}
+          </span>
+          <span className="bg-[#0E4FAE] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-xs tracking-wider uppercase shadow-xs">
+            CHITTOOR MLA CANDIDATE
+          </span>
         </div>
       </div>
 
-      {/* Leader Name & Details Block */}
+      {/* Highlight Constituency Info Row & Action Buttons */}
       <div className="p-3">
-        <h2 className="font-extrabold text-sm sm:text-base text-[#111111] uppercase tracking-wide leading-tight mb-1">
-          {LEADER_INFO.name}
-        </h2>
-        <div className="text-xs font-semibold text-[#555555] mb-2.5">
-          {LEADER_INFO.constituency.toUpperCase()} (CHITTOOR)
-        </div>
-
-        {/* Badges */}
-        <div className="flex flex-wrap gap-1.5 mb-3">
-          <span className="bg-[#0B8F45] text-white text-[11px] font-bold px-2 py-0.5 rounded-xs tracking-wide">
-            {LEADER_INFO.party}
-          </span>
-          <span className="bg-[#0E4FAE] text-white text-[11px] font-bold px-2 py-0.5 rounded-xs tracking-wide">
-            {LEADER_INFO.status}
-          </span>
-        </div>
-
-        {/* Highlight Constituency Info Row */}
         <div className="bg-[#f9f9f9] border border-[#E3E3E3] p-2 text-xs mb-3 flex items-center justify-between">
           <span className="text-gray-600 font-medium">Constituency:</span>
           <span className="font-bold text-gray-900">{LEADER_INFO.constituency}</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LEADER_INFO } from '../data/profileData';
+import { LEADER_INFO, SOCIAL_LINKS } from '../data/profileData';
 import { useLang } from '../context/LanguageContext';
 import { t, tx } from '../data/translations';
 
@@ -71,7 +71,78 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({ onContactClick }) =>
         </table>
       </div>
 
-      {/* ─── WIDGET 3: POLITICAL POSITIONS ─── */}
+      {/* ─── WIDGET 3: OFFICIAL SOCIAL MEDIA HANDLES ─── */}
+      <div className="widget-box card-hover bg-white border border-[#E3E3E3] shadow-xs">
+        <div className="section-title bg-[#0E4FAE] text-white text-xs font-bold px-3 py-2 uppercase tracking-wide flex items-center justify-between">
+          <span>{lang === 'en' ? 'Official Social Media' : 'అధికారిక సోషల్ మీడియా'}</span>
+          <span className="text-[10px] bg-white/20 text-white font-normal px-1.5 py-0.5 rounded-xs">
+            Connect
+          </span>
+        </div>
+        <div className="p-3 space-y-2 text-xs">
+          <a
+            href={SOCIAL_LINKS.youtube}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between p-2 rounded bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 font-bold transition-colors group"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-base">▶</span>
+              <span>YouTube Channel</span>
+            </div>
+            <span className="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-extrabold group-hover:bg-red-700">
+              Subscribe
+            </span>
+          </a>
+
+          <a
+            href={SOCIAL_LINKS.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between p-2 rounded bg-pink-50 hover:bg-pink-100 border border-pink-200 text-pink-700 font-bold transition-colors group"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-base">📷</span>
+              <span>Instagram</span>
+            </div>
+            <span className="text-[10px] bg-gradient-to-r from-purple-600 to-pink-600 text-white px-2 py-0.5 rounded font-extrabold">
+              Follow
+            </span>
+          </a>
+
+          <a
+            href={SOCIAL_LINKS.twitter}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between p-2 rounded bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 font-bold transition-colors group"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-base font-black">𝕏</span>
+              <span>X (Twitter)</span>
+            </div>
+            <span className="text-[10px] bg-sky-600 text-white px-2 py-0.5 rounded font-extrabold group-hover:bg-sky-700">
+              Follow
+            </span>
+          </a>
+
+          <a
+            href={SOCIAL_LINKS.facebook}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between p-2 rounded bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 font-bold transition-colors group"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-base font-black">f</span>
+              <span>Facebook Page</span>
+            </div>
+            <span className="text-[10px] bg-blue-700 text-white px-2 py-0.5 rounded font-extrabold group-hover:bg-blue-800">
+              Like Page
+            </span>
+          </a>
+        </div>
+      </div>
+
+      {/* ─── WIDGET 4: POLITICAL POSITIONS ─── */}
       <div className="widget-box card-hover bg-white border border-[#E3E3E3] shadow-xs">
         <div className="section-title bg-[#0E4FAE] text-white text-xs font-bold px-3 py-2 uppercase tracking-wide">
           {tx(s.politicalPositions, lang)}
@@ -91,7 +162,7 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({ onContactClick }) =>
         </div>
       </div>
 
-      {/* ─── WIDGET 4: CONSTITUENCY OFFICE CONTACT ─── */}
+      {/* ─── WIDGET 5: CONSTITUENCY OFFICE CONTACT ─── */}
       <div id="contact" className="widget-box card-hover bg-white border border-[#E3E3E3] shadow-xs">
         <div className="section-title bg-[#0E4FAE] text-white text-xs font-bold px-3 py-2 uppercase tracking-wide">
           {tx(s.contactTitle, lang)}
@@ -125,7 +196,7 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({ onContactClick }) =>
         </div>
       </div>
 
-      {/* ─── WIDGET 5: YSR CONGRESS PARTY EMBLEM ─── */}
+      {/* ─── WIDGET 6: YSR CONGRESS PARTY EMBLEM ─── */}
       <div className="widget-box card-hover bg-white border border-[#E3E3E3] shadow-xs">
         <div className="section-title bg-[#0E4FAE] text-white text-xs font-bold px-3 py-2 uppercase tracking-wide text-center">
           {tx(s.partyEmblem, lang)}
@@ -138,7 +209,7 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({ onContactClick }) =>
           <div className="text-[11px] text-gray-500 leading-tight mb-2.5">
             {tx(s.partyFounder, lang)}
           </div>
-          <a href="#" className="inline-block text-xs text-[#0E4FAE] font-bold hover:underline">
+          <a href="https://ysrcp.com" target="_blank" rel="noreferrer" className="inline-block text-xs text-[#0E4FAE] font-bold hover:underline">
             {tx(s.partyOfficial, lang)} »
           </a>
         </div>
