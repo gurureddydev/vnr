@@ -1,0 +1,46 @@
+name: Build and Deploy Vite App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Create Netlify Redirect File
+        run: |
+          mkdir -p public
+          echo "/* /index.html 200" > public/_redirects
+
+      - name: Build Project
+        run: npm run build
+        
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: ./dist
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Auto Deploy from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: nfp_E4rhFy2h8Afu6rkW46MivY7hudhKWdzn90ae
+          NETLIFY_SITE_ID: b0502e41-dc36-4898-b4dd-254eb663e5c1
