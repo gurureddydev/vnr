@@ -20,11 +20,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: npm
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Create Netlify Redirect File
         run: |
@@ -33,7 +33,7 @@ jobs:
 
       - name: Build Project
         run: npm run build
-        
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3
         with:
@@ -41,6 +41,9 @@ jobs:
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Auto Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          overwrites-pull-request-comment: false
         env:
           NETLIFY_AUTH_TOKEN: nfp_E4rhFy2h8Afu6rkW46MivY7hudhKWdzn90ae
           NETLIFY_SITE_ID: b0502e41-dc36-4898-b4dd-254eb663e5c1
