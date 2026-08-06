@@ -2,8 +2,19 @@ import React from 'react';
 import { SOCIAL_LINKS } from '../data/profileData';
 import { useLang } from '../context/LanguageContext';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigatePage?: (page: 'home' | 'privacy' | 'terms' | 'sitemap') => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
   const { lang } = useLang();
+
+  const handleLink = (page: 'home' | 'privacy' | 'terms' | 'sitemap', e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigatePage) {
+      onNavigatePage(page);
+    }
+  };
 
   return (
     <footer className="bg-[#0E4FAE] text-white mt-6 border-t-4 border-[#0B8F45]">
@@ -68,7 +79,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-1.5 text-xs text-blue-100">
               {['Photo Gallery', 'Videos & Speeches', 'Press Releases', 'Navaratnalu Welfare', 'Contact Office'].map((item) => (
                 <li key={item}>
-                  <a href="#" className="hover:text-white hover:underline flex items-center gap-1">
+                  <a href="#" onClick={(e) => { e.preventDefault(); if (onNavigatePage) onNavigatePage('home'); }} className="hover:text-white hover:underline flex items-center gap-1">
                     <span>»</span>
                     <span>{item}</span>
                   </a>
@@ -94,16 +105,43 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Copyright Bar */}
+      {/* Copyright & Powered By Bar */}
       <div className="bg-black/30 border-t border-white/15 py-3 px-3">
-        <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-blue-200">
-          <div>
+        <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-blue-200">
+          <div className="text-center md:text-left">
             © 2024 M.C. Vijayananda Reddy – YSRCP Chittoor Assembly. All Rights Reserved.
           </div>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-white hover:underline">Privacy Policy</a>
-            <a href="#" className="hover:text-white hover:underline">Terms of Use</a>
-            <a href="#" className="hover:text-white hover:underline">Sitemap</a>
+
+          {/* Powered by Navhigh Technologies */}
+          <a
+            href="https://navhigh.com"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 bg-black/40 hover:bg-black/60 px-3 py-1.5 rounded-full border border-white/15 shadow-xs transition-all duration-200 group text-white"
+            title="Navhigh Technologies – Digital Development Partner"
+          >
+            <span className="text-[11px] font-medium text-blue-200 group-hover:text-white">Powered by</span>
+            <div className="flex items-center gap-1.5 font-bold tracking-wide text-xs">
+              <img
+                src="/navhightech.png"
+                alt="Navhigh Technologies"
+                className="h-5 w-auto object-contain block max-w-[120px]"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+              <span className="text-white group-hover:text-emerald-300 transition-colors">Navhigh Technologies</span>
+            </div>
+          </a>
+
+          <div className="flex gap-4 items-center">
+            <button onClick={(e) => handleLink('privacy', e)} className="hover:text-white hover:underline cursor-pointer">
+              Privacy Policy
+            </button>
+            <button onClick={(e) => handleLink('terms', e)} className="hover:text-white hover:underline cursor-pointer">
+              Terms of Use
+            </button>
+            <button onClick={(e) => handleLink('sitemap', e)} className="hover:text-white hover:underline cursor-pointer">
+              Sitemap
+            </button>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { NavBar } from './components/NavBar';
 import { NewsTicker } from './components/NewsTicker';
@@ -9,9 +9,50 @@ import { RightSidebar } from './components/RightSidebar';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { LanguageProvider } from './context/LanguageContext';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfUse } from './pages/TermsOfUse';
+import { Sitemap } from './pages/Sitemap';
+
+type PageRoute = 'home' | 'privacy' | 'terms' | 'sitemap';
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState<PageRoute>('home');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#privacy') setCurrentPage('privacy');
+      else if (hash === '#terms') setCurrentPage('terms');
+      else if (hash === '#sitemap') setCurrentPage('sitemap');
+    };
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const navigateTo = (page: PageRoute) => {
+    setCurrentPage(page);
+    window.location.hash = page === 'home' ? '' : page;
+  };
+
+  const handleNavigateHome = (anchor?: string) => {
+    setCurrentPage('home');
+    window.location.hash = '';
+    if (anchor) {
+      setTimeout(() => {
+        if (anchor === 'top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const el = document.getElementById(anchor);
+          if (el) {
+            const top = el.getBoundingClientRect().top + window.scrollY - 56;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }
+      }, 100);
+    }
+  };
 
   return (
     <LanguageProvider>
@@ -22,34 +63,52 @@ export default function App() {
           <Header />
 
           {/* ─── PARTY NAVIGATION STRIP ─── */}
-          <NavBar />
+          <NavBar onNavigateHome={handleNavigateHome} currentPage={currentPage} />
 
           {/* ─── REALTIME NEWS TICKER ─── */}
           <NewsTicker />
 
-          {/* ─── PAGE HEADING STRIP ─── */}
-          <PageHeaderStrip />
+          {currentPage === 'home' && (
+            <>
+              {/* ─── PAGE HEADING STRIP ─── */}
+              <PageHeaderStrip />
 
-          {/* ─── 3-COLUMN DESKTOP MAIN LAYOUT ─── */}
-          <main className="px-3 py-3.5 flex-1">
-            <div className="flex flex-col lg:flex-row gap-3.5 items-start">
+              {/* ─── 3-COLUMN DESKTOP MAIN LAYOUT ─── */}
+              <main className="px-3 py-3.5 flex-1">
+                <div className="flex flex-col lg:flex-row gap-3.5 items-start">
+                  {/* LEFT COLUMN: Leader Profile Card */}
+                  <div className="w-full lg:w-[250px] flex-shrink-0">
+                    <ProfileCard onContactClick={() => setIsContactOpen(true)} />
+                  </div>
 
-              {/* LEFT COLUMN: Leader Profile Card */}
-              <div className="w-full lg:w-[250px] flex-shrink-0">
-                <ProfileCard onContactClick={() => setIsContactOpen(true)} />
-              </div>
+                  {/* CENTER COLUMN: Biography, Timeline, Gallery, Videos, News */}
+                  <CenterColumn />
 
-              {/* CENTER COLUMN: Biography, Timeline, Gallery, Videos, News */}
-              <CenterColumn />
+                  {/* RIGHT COLUMN: Info Cards, Election Details, Positions */}
+                  <RightSidebar onContactClick={() => setIsContactOpen(true)} />
+                </div>
+              </main>
+            </>
+          )}
 
-              {/* RIGHT COLUMN: Info Cards, Election Details, Positions */}
-              <RightSidebar onContactClick={() => setIsContactOpen(true)} />
+          {currentPage === 'privacy' && (
+            <PrivacyPolicy onNavigateHome={() => navigateTo('home')} />
+          )}
 
-            </div>
-          </main>
+          {currentPage === 'terms' && (
+            <TermsOfUse onNavigateHome={() => navigateTo('home')} />
+          )}
+
+          {currentPage === 'sitemap' && (
+            <Sitemap
+              onNavigateHome={() => navigateTo('home')}
+              onNavigatePage={(page) => navigateTo(page)}
+              onOpenContact={() => setIsContactOpen(true)}
+            />
+          )}
 
           {/* ─── FOOTER ─── */}
-          <Footer />
+          <Footer onNavigatePage={(page) => navigateTo(page)} />
         </div>
 
         {/* ─── CONTACT OFFICE INTERACTIVE MODAL ─── */}

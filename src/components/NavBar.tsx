@@ -25,12 +25,28 @@ const NAV_LINKS = [
   { key: 'contactOffice',   anchor: 'contact' },
 ] as const;
 
-export const NavBar: React.FC = () => {
+interface NavBarProps {
+  onNavigateHome?: (anchor?: string) => void;
+  currentPage?: string;
+}
+
+export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) => {
   const { lang, toggleLang } = useLang();
   const [activeKey, setActiveKey]   = useState<string>('aboutLeader');
   const [schemesOpen, setSchemesOpen] = useState(false);
   const [mobileOpen, setMobileOpen]   = useState(false);
   const schemesRef = useRef<HTMLDivElement>(null);
+
+  const handleNavClick = (anchor?: string, key?: string) => {
+    if (key) setActiveKey(key);
+    setSchemesOpen(false);
+    setMobileOpen(false);
+    if (onNavigateHome) {
+      onNavigateHome(anchor);
+    } else if (anchor) {
+      scrollToSection(anchor);
+    }
+  };
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -48,8 +64,8 @@ export const NavBar: React.FC = () => {
         {/* Home icon & party logo */}
         <div className="flex items-center">
           <button
-            onClick={() => { scrollToSection('top'); setActiveKey('home'); setSchemesOpen(false); }}
-            className="bg-[#111] hover:bg-black px-3 py-2 flex items-center justify-center transition-colors border-r border-white/10 flex-shrink-0 gap-2"
+            onClick={() => handleNavClick('top', 'home')}
+            className="bg-[#111] hover:bg-black px-3 py-2 flex items-center justify-center transition-colors border-r border-white/10 flex-shrink-0 gap-2 cursor-pointer"
             title={lang === 'en' ? 'Back to top' : 'పైకి వెళ్ళండి'}
           >
             <img src="/logo.png" alt="YSRCP Logo" className="h-5 w-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
@@ -60,7 +76,7 @@ export const NavBar: React.FC = () => {
           <div className="hidden lg:flex items-center">
             {NAV_LINKS.map(({ key, anchor, hasDropdown }) => {
               const label = tx(t.nav[key as keyof typeof t.nav], lang);
-              const isActive = activeKey === key;
+              const isActive = currentPage === 'home' && activeKey === key;
               const isContact = key === 'contactOffice';
               const isDownload = key === 'downloadProfile';
 
@@ -69,7 +85,7 @@ export const NavBar: React.FC = () => {
                   <div key={key} ref={schemesRef} className="relative">
                     <button
                       onClick={() => { setSchemesOpen(!schemesOpen); setActiveKey(key); }}
-                      className={`px-3 py-2.5 text-[13px] font-bold tracking-wide transition-colors whitespace-nowrap flex items-center gap-1 border-r border-white/10 ${
+                      className={`px-3 py-2.5 text-[13px] font-bold tracking-wide transition-colors whitespace-nowrap flex items-center gap-1 border-r border-white/10 cursor-pointer ${
                         isActive || schemesOpen ? 'bg-[#0B8F45] text-white' : 'hover:bg-white/15 text-white/95'
                       }`}
                     >
@@ -86,7 +102,7 @@ export const NavBar: React.FC = () => {
                           <a
                             key={idx}
                             href="#"
-                            onClick={(e) => { e.preventDefault(); setSchemesOpen(false); }}
+                            onClick={(e) => { e.preventDefault(); handleNavClick('about', 'ysrSchemes'); }}
                             className="flex items-start gap-3 px-3 py-2.5 hover:bg-blue-50 border-b border-[#f0f0f0] last:border-b-0 group transition-colors"
                           >
                             <span className="text-lg flex-shrink-0 mt-0.5">{scheme.icon}</span>
@@ -101,7 +117,7 @@ export const NavBar: React.FC = () => {
                           </a>
                         ))}
                         <div className="bg-[#f9f9f9] px-3 py-2 border-t border-[#E3E3E3] text-right">
-                          <a href="#" onClick={(e) => { e.preventDefault(); setSchemesOpen(false); }}
+                          <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('about', 'ysrSchemes'); }}
                             className="text-[11px] font-bold text-[#cc0000] hover:underline">
                             {tx(t.schemes.viewAll, lang)}
                           </a>
@@ -115,12 +131,8 @@ export const NavBar: React.FC = () => {
               return (
                 <button
                   key={key}
-                  onClick={() => {
-                    setActiveKey(key);
-                    setSchemesOpen(false);
-                    if (anchor) scrollToSection(anchor);
-                  }}
-                  className={`px-3 py-2.5 text-[13px] font-bold tracking-wide transition-colors whitespace-nowrap flex items-center gap-1 border-r border-white/10 ${
+                  onClick={() => handleNavClick(anchor || undefined, key)}
+                  className={`px-3 py-2.5 text-[13px] font-bold tracking-wide transition-colors whitespace-nowrap flex items-center gap-1 border-r border-white/10 cursor-pointer ${
                     isContact
                       ? 'bg-[#0B8F45] hover:bg-[#086a33] text-white'
                       : isActive
@@ -143,7 +155,7 @@ export const NavBar: React.FC = () => {
           <button
             onClick={toggleLang}
             title={lang === 'en' ? 'Switch to Telugu' : 'Switch to English'}
-            className={`px-3 py-1.5 text-[12px] font-extrabold tracking-wider rounded border-2 transition-all duration-200 ${
+            className={`px-3 py-1.5 text-[12px] font-extrabold tracking-wider rounded border-2 transition-all duration-200 cursor-pointer ${
               lang === 'te'
                 ? 'bg-white text-[#0E4FAE] border-white shadow-inner'
                 : 'bg-transparent text-white border-white/60 hover:border-white hover:bg-white/10'
@@ -173,7 +185,7 @@ export const NavBar: React.FC = () => {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden px-3 py-2 text-white hover:bg-white/10 flex items-center gap-2 font-bold text-xs"
+          className="lg:hidden px-3 py-2 text-white hover:bg-white/10 flex items-center gap-2 font-bold text-xs cursor-pointer"
         >
           <span>MENU</span>
           <span className="text-base">{mobileOpen ? '✕' : '☰'}</span>
@@ -201,13 +213,14 @@ export const NavBar: React.FC = () => {
               <React.Fragment key={key}>
                 <button
                   onClick={() => {
-                    setActiveKey(key);
-                    if (hasDropdown) { setSchemesOpen(!schemesOpen); return; }
-                    setMobileOpen(false);
-                    if (anchor) scrollToSection(anchor);
+                    if (hasDropdown) {
+                      setSchemesOpen(!schemesOpen);
+                    } else {
+                      handleNavClick(anchor || undefined, key);
+                    }
                   }}
-                  className={`px-3 py-2 text-sm font-semibold rounded flex items-center justify-between w-full text-left ${
-                    activeKey === key ? 'bg-[#0B8F45] text-white' : 'hover:bg-white/10 text-white'
+                  className={`px-3 py-2 text-sm font-semibold rounded flex items-center justify-between w-full text-left cursor-pointer ${
+                    currentPage === 'home' && activeKey === key ? 'bg-[#0B8F45] text-white' : 'hover:bg-white/10 text-white'
                   }`}
                 >
                   <span>{label}</span>
@@ -217,7 +230,7 @@ export const NavBar: React.FC = () => {
                   <div className="ml-4 flex flex-col gap-0.5 border-l-2 border-[#0B8F45] pl-3">
                     {t.schemes.items.map((scheme, idx) => (
                       <a key={idx} href="#"
-                        onClick={(e) => { e.preventDefault(); setSchemesOpen(false); setMobileOpen(false); }}
+                        onClick={(e) => { e.preventDefault(); handleNavClick('about', 'ysrSchemes'); }}
                         className="py-1.5 text-xs text-white/90 hover:text-white flex items-center gap-2">
                         <span>{scheme.icon}</span>
                         <span>{scheme[lang].label}</span>
