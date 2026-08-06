@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Header } from './components/Header';
 import { NavBar } from './components/NavBar';
 import { NewsTicker } from './components/NewsTicker';
-import { Breadcrumb, PageHeaderStrip } from './components/Breadcrumb';
+import { PageHeaderStrip } from './components/Breadcrumb';
 import { ProfileCard } from './components/ProfileCard';
 import { CenterColumn } from './components/CenterColumn';
 import { RightSidebar } from './components/RightSidebar';
@@ -26,9 +26,6 @@ export default function App() {
 
           {/* ─── REALTIME NEWS TICKER ─── */}
           <NewsTicker />
-
-          {/* ─── BREADCRUMB ─── */}
-          <Breadcrumb />
 
           {/* ─── PAGE HEADING STRIP ─── */}
           <PageHeaderStrip />

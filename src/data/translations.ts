@@ -267,7 +267,10 @@ export const t = {
     ],
     contactTitle: { en: 'Constituency Office', te: 'నియోజకవర్గ కార్యాలయం' },
     contactName: { en: 'Vijayananda Reddy', te: 'విజయానంద రెడ్డి' },
-    contactAddress: { en: 'Chittoor Constituency Office, Chittoor, AP', te: 'చిత్తూరు నియోజకవర్గ కార్యాలయం, చిత్తూరు, ఏపీ' },
+    contactAddress: {
+      en: 'YSRCP Party Office Chittoor, Ettiyamma Temple Street, Konga reddy palli',
+      te: 'వైఎస్సార్సీపీ పార్టీ ఆఫీస్ చిత్తూరు, ఎట్టియమ్మ గుడి వీధి, కొంగారెడ్డి పల్లె'
+    },
     contactPhone: { en: 'Call Office', te: 'కార్యాలయానికి కాల్ చేయండి' },
     contactEmail: { en: 'Send Email', te: 'ఇమెయిల్ పంపండి' },
     contactBtn: { en: 'Contact Now', te: 'ఇప్పుడు సంప్రదించండి' },

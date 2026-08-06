@@ -41,6 +41,7 @@ export interface LeaderInfo {
   voterStatus: string;
   phone: string;
   email: string;
+  officeAddress: string;
 }
 
 export const LEADER_INFO: LeaderInfo = {
@@ -58,8 +59,9 @@ export const LEADER_INFO: LeaderInfo = {
   partNumber: '44',
   serialNumber: '77',
   voterStatus: 'Enrolled',
-  phone: '+91 94400 12345',
-  email: 'office@ysrcp-chittoor.in',
+  phone: '+91 81250 26072',
+  email: 'mcvreddy1234@mcvnr.com',
+  officeAddress: 'YSRCP Party Office Chittoor, Ettiyamma Temple Street, Konga reddy palli',
 };
 
 export interface SocialLinks {

@@ -32,9 +32,6 @@ export const PageHeaderStrip: React.FC = () => {
             Leader Profile – M.C. Vijayananda Reddy
           </h1>
         </div>
-        <div className="bg-[#0E4FAE] text-white text-[11px] font-bold px-3 py-1 rounded-xs tracking-wider uppercase shadow-2xs">
-          2024 MLA Candidate | Chittoor
-        </div>
       </div>
     </div>
   );

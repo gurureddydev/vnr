@@ -45,13 +45,14 @@ export const NavBar: React.FC = () => {
     <nav className="bg-[#0E4FAE] border-b border-[#0a3d8a] text-white sticky top-0 z-40 shadow-sm">
       <div className="max-w-[1200px] mx-auto flex items-center justify-between">
 
-        {/* Home icon */}
+        {/* Home icon & party logo */}
         <div className="flex items-center">
           <button
             onClick={() => { scrollToSection('top'); setActiveKey('home'); setSchemesOpen(false); }}
-            className="bg-[#111] hover:bg-black px-4 py-2.5 flex items-center justify-center transition-colors border-r border-white/10 flex-shrink-0"
+            className="bg-[#111] hover:bg-black px-3 py-2 flex items-center justify-center transition-colors border-r border-white/10 flex-shrink-0 gap-2"
             title={lang === 'en' ? 'Back to top' : 'పైకి వెళ్ళండి'}
           >
+            <img src="/logo.png" alt="YSRCP Logo" className="h-5 w-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             <span className="text-base">🏠</span>
           </button>
 

@@ -13,9 +13,12 @@ export const Footer: React.FC = () => {
 
           {/* Col 1: About YSRCP */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white border-b border-white/20 pb-2 mb-3">
-              YSR Congress Party
-            </h4>
+            <div className="flex items-center gap-2 border-b border-white/20 pb-2 mb-3">
+              <img src="/logo.png" alt="YSRCP Logo" className="h-7 w-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+                YSR Congress Party
+              </h4>
+            </div>
             <p className="text-xs text-blue-100 leading-relaxed mb-3">
               YSR Congress Party is committed to welfare governance, agricultural revival, rural empowerment, and equal development for all sections of society in Andhra Pradesh.
             </p>
@@ -81,10 +84,10 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="text-xs text-blue-100 space-y-1.5 leading-relaxed">
               <div className="font-bold text-white">M.C. Vijayananda Reddy Office</div>
-              <div>YSR Congress Party Office, High Road</div>
-              <div>Chittoor Town, Andhra Pradesh</div>
-              <div className="pt-1 text-white font-semibold">📞 +91 94400 12345</div>
-              <div className="text-white font-semibold">✉ office@ysrcp-chittoor.in</div>
+              <div>YSRCP Party Office Chittoor</div>
+              <div>Ettiyamma Temple Street, Konga reddy palli</div>
+              <div className="pt-1 text-white font-semibold">📞 +91 81250 26072</div>
+              <div className="text-white font-semibold">✉ mcvreddy1234@mcvnr.com</div>
             </div>
           </div>
 
