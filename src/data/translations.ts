@@ -5,6 +5,7 @@ export const t = {
     home: { en: 'Home', te: 'హోమ్' },
     aboutLeader: { en: 'About Leader', te: 'నాయకుడు' },
     politicalCareer: { en: 'Political Career', te: 'రాజకీయ జీవితం' },
+    philanthropy: { en: 'Philanthropy', te: 'దాతృత్వం' },
     constituency: { en: 'Constituency', te: 'నియోజకవర్గం' },
     ysrSchemes: { en: 'YSR Schemes', te: 'వైఎస్ పథకాలు' },
     photoGallery: { en: 'Photo Gallery', te: 'ఫోటో గ్యాలరీ' },
@@ -59,7 +60,7 @@ export const t = {
   breadcrumb: {
     home: { en: 'Home', te: 'హోమ్' },
     partyMembers: { en: 'Party Members', te: 'పార్టీ సభ్యులు' },
-    profile: { en: 'M.C. Vijayananda Reddy', te: 'ఎం.సి. విజయానంద రెడ్డి' },
+    profile: { en: 'M.C. Vijayanandha Reddy (VNR)', te: 'ఎం.సి. విజయానంధ రెడ్డి (VNR)' },
     pageTitle: { en: 'Leader Profile', te: 'నాయకుని ప్రొఫైల్' },
     candidateTag: { en: 'YSRCP Candidate', te: 'వైఎస్సార్సీపీ అభ్యర్థి' },
     constituencyTag: { en: 'Chittoor Constituency', te: 'చిత్తూరు నియోజకవర్గం' },
@@ -67,7 +68,8 @@ export const t = {
 
   // ── PROFILE CARD (LEFT COLUMN) ───────────────────────────────────────
   profileCard: {
-    name: { en: 'M.C. VIJAYANANDA REDDY', te: 'ఎం.సి. విజయానంద రెడ్డి' },
+    name: { en: 'M.C. VIJAYANANDHA REDDY', te: 'ఎం.సి. విజయానంధ రెడ్డి' },
+    moniker: { en: 'VNR', te: 'VNR' },
     status: { en: 'MLA Candidate', te: 'ఎమ్మెల్యే అభ్యర్థి' },
     party: { en: 'YSR Congress Party', te: 'వైఎస్ కాంగ్రెస్ పార్టీ' },
     constituency: { en: 'Chittoor Constituency', te: 'చిత్తూరు నియోజకవర్గం' },
@@ -84,32 +86,36 @@ export const t = {
 
   // ── BIOGRAPHY SECTION ────────────────────────────────────────────────
   bio: {
-    sectionTitle: { en: 'About M.C. Vijayananda Reddy', te: 'ఎం.సి. విజయానంద రెడ్డి గురించి' },
+    sectionTitle: { en: 'About M.C. Vijayanandha Reddy (VNR)', te: 'ఎం.సి. విజయానంధ రెడ్డి (VNR) గురించి' },
     sectionTag: { en: 'Biography', te: 'జీవిత చరిత్ర' },
     p1: {
-      en: 'M.C. Vijayananda Reddy is a distinguished political leader, administrator, and social organizer from Chittoor district, Andhra Pradesh. As a senior leader of the YSR Congress Party (YSRCP), he has dedicated his life to advancing local development, strengthening public infrastructure, and promoting welfare empowerment across Chittoor Assembly Constituency.',
-      te: 'ఎం.సి. విజయానంద రెడ్డి ఆంధ్రప్రదేశ్‌లోని చిత్తూరు జిల్లాకు చెందిన విశిష్ట రాజకీయ నాయకుడు, పరిపాలకుడు మరియు సామాజిక నిర్వాహకుడు. వైఎస్ కాంగ్రెస్ పార్టీ (వైఎస్సార్సీపీ) సీనియర్ నాయకుడిగా, స్థానిక అభివృద్ధి, ప్రజా మౌలిక సదుపాయాలు మరియు చిత్తూరు అసెంబ్లీ నియోజకవర్గంలో సంక్షేమ సాధికారత కోసం తన జీవితాన్ని అంకితం చేశారు.',
+      en: 'M. C. Vijayanandha Reddy (born July 24, 1969), popularly known by his moniker VNR, is an Indian politician from Andhra Pradesh. He is currently serving as the in-charge of the Chittoor Assembly constituency and is a close political ally of Y. S. Jagan Mohan Reddy, Peddireddy Ramachandra Reddy, and Peddireddy Mithun Reddy. He is noted for his various philanthropic acts and community service, which have contributed to his reputation for kindness.',
+      te: 'ఎం. సి. విజయానంధ రెడ్డి (జననం: జూలై 24, 1969), VNR అనే పేరుతో ప్రసిద్ధి చెందారు, ఆంధ్రప్రదేశ్‌కు చెందిన భారతీయ రాజకీయ నాయకుడు. ప్రస్తుతం చిత్తూరు అసెంబ్లీ నియోజకవర్గ ఇన్‌చార్జ్‌గా పని చేస్తున్నారు మరియు వై. ఎస్. జగన్ మోహన్ రెడ్డి, పెద్దిరెడ్డి రామచంద్ర రెడ్డి మరియు పెద్దిరెడ్డి మిథున్ రెడ్డిల సన్నిహిత రాజకీయ మిత్రుడు. వివిధ దాతృత్వ చర్యలు మరియు సామాజిక సేవ ద్వారా దయాగుణంతో పేరు పొందారు.',
     },
     p2: {
-      en: 'Born and raised in Kothapallemitta village in Chittoor district, Vijayananda Reddy hails from a respected family with deep agricultural and community service roots. Prior to entering public life full-time, he established successful business enterprises in the region, gaining a practical understanding of commercial dynamics, local employment needs, and economic challenges.',
-      te: 'చిత్తూరు జిల్లాలోని కొత్తపల్లెమిట్ట గ్రామంలో జన్మించి పెరిగిన విజయానంద రెడ్డి, వ్యవసాయం మరియు సమాజ సేవలో లోతైన మూలాలు ఉన్న గౌరవప్రదమైన కుటుంబానికి చెందినవారు. పూర్తి సమయం ప్రజా జీవితంలోకి ప్రవేశించే ముందు, ప్రాంతంలో విజయవంతమైన వ్యాపార సంస్థలను స్థాపించి, వాణిజ్య డైనమిక్స్, స్థానిక ఉపాధి అవసరాలు మరియు ఆర్థిక సవాళ్ళపై ఆచరణాత్మక అవగాహన పొందారు.',
+      en: 'Born into a farmer family to M. A. Chinnabba Reddy and Padmajyothi, he is married to M. V. Indhumathi. He holds a Bachelor of Commerce (OUS) degree from Viswa Bharathi University, Raipur, Chhattisgarh, obtained in 2005.',
+      te: 'ఎం. ఎ. చిన్నబ్బ రెడ్డి మరియు పద్మజ్యోతి దంపతులకు రైతు కుటుంబంలో జన్మించారు, ఎం. వి. ఇంధుమతిని వివాహం చేసుకున్నారు. 2005లో ఛత్తీస్‌గఢ్‌లోని రాయ్‌పూర్ విశ్వ భారతి విశ్వవిద్యాలయం నుండి బ్యాచిలర్ ఆఫ్ కామర్స్ (OUS) డిగ్రీ పొందారు.',
     },
     p3: {
-      en: 'Drawn to the public-centric vision of Sri Y.S. Jagan Mohan Reddy, Vijayananda Reddy joined the YSR Congress Party and played a central role in expanding its organizational footprint across Chittoor district. His appointment as Vice Chairman of the Andhra Pradesh State Road Transport Corporation (APSRTC) reflected the party leadership\'s trust in his administrative capabilities and commitment to public service.',
-      te: 'శ్రీ వైఎస్ జగన్ మోహన్ రెడ్డి యొక్క ప్రజా-కేంద్రీకృత దృష్టికి ఆకర్షితుడై, విజయానంద రెడ్డి వైఎస్ కాంగ్రెస్ పార్టీలో చేరారు మరియు చిత్తూరు జిల్లా అంతటా దాని సంఘటనా ముద్రను విస్తరించడంలో కీలక పాత్ర పోషించారు. ఆంధ్రప్రదేశ్ స్టేట్ రోడ్ ట్రాన్స్‌పోర్ట్ కార్పొరేషన్ (ఎపిఎస్ఆర్టిసి) వైస్ చైర్మన్‌గా ఆయన నియామకం పార్టీ నాయకత్వం ఆయన పరిపాలనా సామర్థ్యాలు మరియు ప్రజా సేవకు నిబద్ధతపై విశ్వాసాన్ని ప్రతిబింబించింది.',
+      en: 'He has been actively involved in politics for the past decade, creating a distinct identity within YSRCP. He resigned from Congress on November 30, 2010, joined YSRCP in 2011, and served as Vice Chairman of APSRTC from October 2021 to 2024 under CM Y. S. Jagan Mohan Reddy. He also played a crucial role in establishing Smart DV Technologies, one of the first IT companies in rural India.',
+      te: 'గత దశాబ్దంగా రాజకీయాలలో చురుకుగా పాల్గొంటున్నారు, వైఎస్సార్సీపీలో ప్రత్యేక గుర్తింపు సృష్టించారు. 2010 నవంబర్ 30న కాంగ్రెస్‌కు రాజీనామా చేసి, 2011లో వైఎస్సార్సీపీలో చేరారు, సిఎం వైఎస్ జగన్ మోహన్ రెడ్డి ఆధ్వర్యంలో అక్టోబర్ 2021 నుండి 2024 వరకు ఎపిఎస్ఆర్టిసి వైస్ చైర్మన్‌గా పని చేశారు. గ్రామీణ భారతదేశంలో మొదటి ఐటీ కంపెనీలలో ఒకటైన స్మార్ట్ DV టెక్నాలజీస్ స్థాపనలో కీలక పాత్ర పోషించారు.',
     },
     keyHighlights: { en: 'Key Highlights', te: 'ముఖ్య విషయాలు' },
     highlightViceChairman: {
-      en: 'Former Vice Chairman, APSRTC',
-      te: 'మాజీ వైస్ చైర్మన్, ఎపిఎస్ఆర్టిసి',
+      en: 'Former Vice Chairman, APSRTC (Oct 2021–2024)',
+      te: 'మాజీ వైస్ చైర్మన్, ఎపిఎస్ఆర్టిసి (అక్టోబర్ 2021–2024)',
     },
     highlightCoordinator: {
-      en: 'YSRCP Chittoor Constituency Coordinator',
-      te: 'వైఎస్సార్సీపీ చిత్తూరు నియోజకవర్గ సమన్వయకర్త',
+      en: 'Chittoor Assembly Constituency In-Charge',
+      te: 'చిత్తూరు అసెంబ్లీ నియోజకవర్గ ఇన్‌చార్జ్',
     },
     highlightCandidate: {
       en: '2024 MLA Candidate – Chittoor',
       te: '2024 ఎమ్మెల్యే అభ్యర్థి – చిత్తూరు',
+    },
+    highlightPhilanthropist: {
+      en: 'Jananeta (People\'s Leader) – Known for Philanthropy',
+      te: 'జననేత (ప్రజల నాయకుడు) – దాతృత్వానికి ప్రసిద్ధి',
     },
   },
 
@@ -120,51 +126,71 @@ export const t = {
       {
         en: {
           title: 'YSRCP MLA Candidate – Chittoor',
-          desc: 'Officially fielded as the YSR Congress Party candidate for the 2024 Andhra Pradesh Legislative Assembly election from Chittoor constituency.',
+          desc: 'The YSR Congress Party (YSRCP) nominated Vijayanandha Reddy as its candidate for the Chittoor Assembly constituency in the Andhra Pradesh Legislative Assembly election 2024.',
         },
         te: {
           title: 'వైఎస్సార్సీపీ ఎమ్మెల్యే అభ్యర్థి – చిత్తూరు',
-          desc: 'చిత్తూరు నియోజకవర్గం నుండి 2024 ఆంధ్రప్రదేశ్ శాసనసభ ఎన్నికలకు వైఎస్ కాంగ్రెస్ పార్టీ అభ్యర్థిగా అధికారికంగా నిలబెట్టబడ్డారు.',
+          desc: '2024 ఆంధ్రప్రదేశ్ శాసనసభ ఎన్నికలలో చిత్తూరు అసెంబ్లీ నియోజకవర్గం నుండి వైఎస్సార్సీపీ అభ్యర్థిగా విజయానంధ రెడ్డిని నామినేట్ చేసింది.',
         },
       },
       {
         en: {
-          title: 'Chittoor Assembly Constituency Coordinator',
-          desc: 'Served as the official YSRCP coordinator for Chittoor Assembly Constituency, overseeing party activities, Navaratnalu welfare scheme implementation, and public outreach across all mandals.',
+          title: 'Vice Chairman – APSRTC',
+          desc: 'Held the significant administrative role of Vice Chairman of the Andhra Pradesh State Road Transport Corporation (APSRTC) from October 2021 to 2024, succeeding P.S. Munirathnam, under Chief Minister Y. S. Jagan Mohan Reddy.',
         },
         te: {
-          title: 'చిత్తూరు అసెంబ్లీ నియోజకవర్గ సమన్వయకర్త',
-          desc: 'చిత్తూరు అసెంబ్లీ నియోజకవర్గానికి అధికారిక వైఎస్సార్సీపీ సమన్వయకర్తగా పని చేశారు, పార్టీ కార్యకలాపాలు, నవరత్నాలు సంక్షేమ పథకం అమలు మరియు అన్ని మండలాల్లో ప్రజా సంబంధాలు పర్యవేక్షించారు.',
+          title: 'వైస్ చైర్మన్ – ఎపిఎస్ఆర్టిసి',
+          desc: 'ముఖ్యమంత్రి వై. ఎస్. జగన్ మోహన్ రెడ్డి ఆధ్వర్యంలో అక్టోబర్ 2021 నుండి 2024 వరకు ఎపిఎస్ఆర్టిసి వైస్ చైర్మన్‌గా ముఖ్యమైన పరిపాలనా పాత్ర నిర్వహించారు, పి.ఎస్. మునిరత్నం తరువాత ఈ పదవిని చేపట్టారు.',
         },
       },
       {
         en: {
-          title: 'Former Vice Chairman – APSRTC',
-          desc: 'Appointed as Vice Chairman of the Andhra Pradesh State Road Transport Corporation, contributing to public transport policy, worker welfare, and regional bus connectivity.',
+          title: 'General Elections Campaign (2014 & 2019)',
+          desc: 'As part of the 2014 and 2019 general elections, he toured extensively across the Chittoor district and worked hard for the YSRCP party\'s victory.',
         },
         te: {
-          title: 'మాజీ వైస్ చైర్మన్ – ఎపిఎస్ఆర్టిసి',
-          desc: 'ఆంధ్రప్రదేశ్ స్టేట్ రోడ్ ట్రాన్స్‌పోర్ట్ కార్పొరేషన్ వైస్ చైర్మన్‌గా నియమించబడ్డారు, ప్రజా రవాణా విధానం, కార్మిక సంక్షేమం మరియు ప్రాంతీయ బస్సు కనెక్టివిటీకి సహకరించారు.',
+          title: 'సార్వత్రిక ఎన్నికల ప్రచారం (2014 & 2019)',
+          desc: '2014 మరియు 2019 సార్వత్రిక ఎన్నికల్లో, చిత్తూరు జిల్లా అంతటా విస్తృతంగా పర్యటించి వైఎస్సార్సీపీ పార్టీ విజయం కోసం కృషి చేశారు.',
         },
       },
       {
         en: {
-          title: 'Senior YSRCP Party Leader – Chittoor District',
-          desc: 'Active senior leader and organiser for YSR Congress Party in Chittoor district, leading membership drives, padayatras, and public grievances redressal campaigns.',
+          title: 'By-Elections & Praja Prasthanam',
+          desc: 'Worked diligently for the victory of YSRCP in the by-elections. Participated in and contributed to the success of the "Praja Prasthanam" (public journey) initiated by the YSRCP through Y.S. Sharmila.',
         },
         te: {
-          title: 'సీనియర్ వైఎస్సార్సీపీ పార్టీ నాయకుడు – చిత్తూరు జిల్లా',
-          desc: 'చిత్తూరు జిల్లాలో వైఎస్ కాంగ్రెస్ పార్టీలో చురుకైన సీనియర్ నాయకుడు మరియు నిర్వాహకుడు, సభ్యత్వ డ్రైవ్‌లు, పాదయాత్రలు మరియు ప్రజా ఫిర్యాదుల పరిష్కార ప్రచారాలకు నేతృత్వం వహించారు.',
+          title: 'ఉప ఎన్నికలు & ప్రజా ప్రస్థానం',
+          desc: 'ఉప ఎన్నికలలో వైఎస్సార్సీపీ విజయం కోసం శ్రద్ధగా పని చేశారు. వైఎస్ షర్మిల ద్వారా వైఎస్సార్సీపీ ప్రారంభించిన "ప్రజా ప్రస్థానం"లో పాల్గొని విజయానికి సహకరించారు.',
         },
       },
       {
         en: {
-          title: 'Business & Community Welfare Work',
-          desc: 'Established successful business ventures in Chittoor. Active in community welfare initiatives supporting education, rural roads, healthcare camps, and drinking water facilities.',
+          title: 'Joined YSR Congress Party',
+          desc: 'Formally joined the Y.S.R. Congress Party and began building the party\'s organisational network across Chittoor district.',
         },
         te: {
-          title: 'వ్యాపారం & సమాజ సంక్షేమ పని',
-          desc: 'చిత్తూరులో విజయవంతమైన వ్యాపార సంస్థలు స్థాపించారు. విద్య, గ్రామీణ రోడ్లు, ఆరోగ్య శిబిరాలు మరియు తాగునీటి సదుపాయాలకు మద్దతు ఇచ్చే సమాజ సంక్షేమ కార్యక్రమాలలో చురుకుగా ఉన్నారు.',
+          title: 'వైఎస్ కాంగ్రెస్ పార్టీలో చేరిక',
+          desc: 'వైఎస్ కాంగ్రెస్ పార్టీలో అధికారికంగా చేరి, చిత్తూరు జిల్లా అంతటా పార్టీ సంఘటనా నెట్‌వర్క్‌ను నిర్మించడం ప్రారంభించారు.',
+        },
+      },
+      {
+        en: {
+          title: 'Resigned from Congress Party',
+          desc: 'On November 30, 2010, he resigned from the Congress Party and extended his support to Sri Y.S. Jagan Mohan Reddy, marking the beginning of his journey with YSRCP.',
+        },
+        te: {
+          title: 'కాంగ్రెస్ పార్టీకి రాజీనామా',
+          desc: '2010 నవంబర్ 30న కాంగ్రెస్ పార్టీకి రాజీనామా చేసి శ్రీ వైఎస్ జగన్ మోహన్ రెడ్డికి మద్దతు తెలిపారు, వైఎస్సార్సీపీతో ఆయన ప్రయాణం ప్రారంభమైంది.',
+        },
+      },
+      {
+        en: {
+          title: 'First YSR Bronze Statue in Chittoor District',
+          desc: 'Demonstrated his profound admiration for the late leader Y.S. Rajasekhara Reddy by installing the first bronze statue of the former Chief Minister in the entire Chittoor district.',
+        },
+        te: {
+          title: 'చిత్తూరు జిల్లాలో మొదటి YSR కంచు విగ్రహం',
+          desc: 'దివంగత నాయకుడు వై.ఎస్. రాజశేఖర రెడ్డి పట్ల తన గాఢమైన ప్రశంసను చిత్తూరు జిల్లా మొత్తంలో మాజీ ముఖ్యమంత్రి మొదటి కంచు విగ్రహం ఏర్పాటు చేయడం ద్వారా ప్రదర్శించారు.',
         },
       },
     ],
@@ -191,36 +217,36 @@ export const t = {
     items: [
       {
         en: {
-          headline: 'MC Vijayananda Reddy chairs ward coordinators meeting in Chittoor',
-          summary: 'Chittoor YSRCP candidate MC Vijayananda Reddy held a detailed review meeting with ward in-charges to streamline door-to-door campaign efforts and review welfare scheme coverage.',
+          headline: 'MC Vijayanandha Reddy (VNR) chairs ward coordinators meeting in Chittoor',
+          summary: 'Chittoor YSRCP candidate MC Vijayanandha Reddy (VNR) held a detailed review meeting with ward in-charges to streamline door-to-door campaign efforts and review welfare scheme coverage.',
           category: 'Constituency',
         },
         te: {
-          headline: 'చిత్తూరులో వార్డు సమన్వయకర్తల సమావేశానికి ఎంసి విజయానంద రెడ్డి అధ్యక్షత వహించారు',
-          summary: 'చిత్తూరు వైఎస్సార్సీపీ అభ్యర్థి ఎంసి విజయానంద రెడ్డి వార్డు ఇన్-చార్జ్‌లతో వివరణాత్మక సమీక్షా సమావేశం నిర్వహించారు.',
+          headline: 'చిత్తూరులో వార్డు సమన్వయకర్తల సమావేశానికి ఎంసి విజయానంధ రెడ్డి (VNR) అధ్యక్షత వహించారు',
+          summary: 'చిత్తూరు వైఎస్సార్సీపీ అభ్యర్థి ఎంసి విజయానంధ రెడ్డి (VNR) వార్డు ఇన్-చార్జ్‌లతో వివరణాత్మక సమీక్షా సమావేశం నిర్వహించారు.',
           category: 'నియోజకవర్గం',
         },
       },
       {
         en: {
           headline: 'YSRCP MLA candidate reaffirms commitment to Chittoor development',
-          summary: 'Speaking at a press conference in Chittoor, Vijayananda Reddy highlighted key projects including industrial corridor linkage, drinking water projects, and youth employment initiatives.',
+          summary: 'Speaking at a press conference in Chittoor, Vijayanandha Reddy highlighted key projects including industrial corridor linkage, drinking water projects, and youth employment initiatives.',
           category: 'Press Release',
         },
         te: {
           headline: 'చిత్తూరు అభివృద్ధికి నిబద్ధతను పునరుద్ఘాటించారు వైఎస్సార్సీపీ ఎమ్మెల్యే అభ్యర్థి',
-          summary: 'చిత్తూరులో ఒక పత్రికా సమావేశంలో మాట్లాడిన విజయానంద రెడ్డి పారిశ్రామిక కారిడార్ లింకేజ్, తాగునీటి ప్రాజెక్టులు మరియు యువత ఉపాధి కార్యక్రమాలు వంటి ముఖ్యమైన ప్రాజెక్టులను హైలైట్ చేశారు.',
+          summary: 'చిత్తూరులో ఒక పత్రికా సమావేశంలో మాట్లాడిన విజయానంధ రెడ్డి పారిశ్రామిక కారిడార్ లింకేజ్, తాగునీటి ప్రాజెక్టులు మరియు యువత ఉపాధి కార్యక్రమాలు వంటి ముఖ్యమైన ప్రాజెక్టులను హైలైట్ చేశారు.',
           category: 'పత్రికా ప్రకటన',
         },
       },
       {
         en: {
-          headline: 'Vijayananda Reddy distributes relief to flood-affected families in constituency',
+          headline: 'VNR distributes relief to flood-affected families in constituency',
           summary: 'Inspected low-lying areas in Chittoor town following heavy rains and ensured immediate distribution of essential provisions and medical aid to affected residents.',
           category: 'Social Work',
         },
         te: {
-          headline: 'నియోజకవర్గంలో వరద బాధిత కుటుంబాలకు సహాయం పంచిన విజయానంద రెడ్డి',
+          headline: 'నియోజకవర్గంలో వరద బాధిత కుటుంబాలకు సహాయం పంచిన VNR',
           summary: 'భారీ వర్షాల తర్వాత చిత్తూరు పట్టణంలోని లోతట్టు ప్రాంతాలను పరిశీలించి, బాధిత నివాసులకు అవసరమైన సరకులు మరియు వైద్య సహాయం సత్వరం పంపిణీ చేయడం నిర్ధారించారు.',
           category: 'సామాజిక సేవ',
         },
@@ -243,13 +269,18 @@ export const t = {
   // ── RIGHT SIDEBAR ─────────────────────────────────────────────────────
   sidebar: {
     leaderInfo: { en: 'Leader Information', te: 'నాయకుని వివరాలు' },
+    dob: { en: 'Date of Birth', te: 'పుట్టిన తేదీ' },
     fatherName: { en: "Father's Name", te: 'తండ్రి పేరు' },
+    motherName: { en: "Mother's Name", te: 'తల్లి పేరు' },
+    spouseName: { en: 'Spouse', te: 'జీవిత భాగస్వామి' },
     age: { en: 'Age', te: 'వయసు' },
     party: { en: 'Party', te: 'పార్టీ' },
     profession: { en: 'Profession', te: 'వృత్తి' },
     professionValue: { en: 'Business', te: 'వ్యాపారం' },
     spouseProfession: { en: "Spouse's Profession", te: 'జీవిత భాగస్వామి వృత్తి' },
     village: { en: 'Native Village', te: 'స్వగ్రామం' },
+    education: { en: 'Education', te: 'విద్యాభ్యాసం' },
+    moniker: { en: 'Also Known As', te: 'ఇతర పేరు' },
     electionInfo: { en: 'Election Information', te: 'ఎన్నికల వివరాలు' },
     electionLabel: { en: 'Election', te: 'ఎన్నిక' },
     electionValue: { en: '2024 Assembly Candidate', te: '2024 అసెంబ్లీ అభ్యర్థి' },
@@ -260,13 +291,14 @@ export const t = {
     voterStatusValue: { en: 'Enrolled', te: 'నమోదు చేయబడింది' },
     politicalPositions: { en: 'Political Positions', te: 'రాజకీయ పదవులు' },
     positions: [
-      { en: 'Chittoor Assembly Coordinator', te: 'చిత్తూరు అసెంబ్లీ సమన్వయకర్త' },
-      { en: 'Former APSRTC Vice Chairman', te: 'మాజీ ఎపిఎస్ఆర్టిసి వైస్ చైర్మన్' },
-      { en: 'Senior YSRCP Leader', te: 'సీనియర్ వైఎస్సార్సీపీ నాయకుడు' },
-      { en: 'YSRCP Chittoor District Core Committee Member', te: 'వైఎస్సార్సీపీ చిత్తూరు జిల్లా కోర్ కమిటీ సభ్యుడు' },
+      { en: 'Chittoor Assembly Constituency In-Charge', te: 'చిత్తూరు అసెంబ్లీ నియోజకవర్గ ఇన్‌చార్జ్' },
+      { en: 'Former Vice Chairman – APSRTC (Oct 2021–2024)', te: 'మాజీ వైస్ చైర్మన్ – ఎపిఎస్ఆర్టిసి (అక్టోబర్ 2021–2024)' },
+      { en: 'Senior YSRCP Leader & Organiser', te: 'సీనియర్ వైఎస్సార్సీపీ నాయకుడు & నిర్వాహకుడు' },
+      { en: 'Close Ally of Y. S. Jagan Mohan Reddy', te: 'వై. ఎస్. జగన్ మోహన్ రెడ్డి సన్నిహిత మిత్రుడు' },
+      { en: 'Founder – Smart DV Technologies (Rural IT)', te: 'వ్యవస్థాపకుడు – స్మార్ట్ DV టెక్నాలజీస్ (గ్రామీణ ఐటీ)' },
     ],
     contactTitle: { en: 'Constituency Office', te: 'నియోజకవర్గ కార్యాలయం' },
-    contactName: { en: 'Vijayananda Reddy', te: 'విజయానంద రెడ్డి' },
+    contactName: { en: 'Vijayanandha Reddy', te: 'విజయానంధ రెడ్డి' },
     contactAddress: {
       en: 'YSRCP Party Office Chittoor, Ettiyamma Temple Street, Konga reddy palli',
       te: 'వైఎస్సార్సీపీ పార్టీ ఆఫీస్ చిత్తూరు, ఎట్టియమ్మ గుడి వీధి, కొంగారెడ్డి పల్లె'
@@ -286,8 +318,8 @@ export const t = {
       te: 'చిత్తూరు నియోజకవర్గ అభివృద్ధి మరియు సంక్షేమానికి అంకితం',
     },
     copyright: {
-      en: '© 2024 M.C. Vijayananda Reddy – YSRCP Chittoor. All rights reserved.',
-      te: '© 2024 ఎం.సి. విజయానంద రెడ్డి – వైఎస్సార్సీపీ చిత్తూరు. అన్ని హక్కులూ నిల్వ.',
+      en: '© 2024 M.C. Vijayanandha Reddy (VNR) – YSRCP Chittoor. All rights reserved.',
+      te: '© 2024 ఎం.సి. విజయానంధ రెడ్డి (VNR) – వైఎస్సార్సీపీ చిత్తూరు. అన్ని హక్కులూ నిల్వ.',
     },
     disclaimer: {
       en: 'Official campaign page of YSRCP MLA Candidate for Chittoor Constituency.',

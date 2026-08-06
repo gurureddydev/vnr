@@ -21,13 +21,17 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({ onContactClick }) =>
         </div>
         <div className="divide-y divide-[#f0f0f0] text-xs">
           {[
+            { label: s.moniker,    value: LEADER_INFO.moniker, bold: true, blue: true },
+            { label: s.dob,        value: LEADER_INFO.dob,     bold: false },
             { label: s.fatherName, value: LEADER_INFO.fatherName, bold: false },
+            { label: s.motherName, value: LEADER_INFO.motherName, bold: false },
+            { label: s.spouseName, value: LEADER_INFO.spouseName, bold: false },
             { label: s.age,        value: `${LEADER_INFO.age}`,   bold: false },
             { label: s.party,      value: tx(s.partyEmblem, lang), bold: true, green: true },
             { label: s.profession, value: tx(s.professionValue, lang), bold: false },
-            { label: s.spouseProfession, value: tx(s.professionValue, lang), bold: false },
             { label: s.constituency, value: lang === 'en' ? LEADER_INFO.constituency : 'చిత్తూరు', bold: true },
             { label: s.village,    value: LEADER_INFO.village, bold: false },
+            { label: s.education,  value: lang === 'en' ? 'B.Com (OUS) – Viswa Bharathi Univ.' : 'బి.కాం (OUS) – విశ్వ భారతి విశ్వవిద్యాలయం', bold: false },
             { label: { en: 'Election', te: 'ఎన్నిక' }, value: tx(s.electionValue, lang), bold: true, blue: true },
           ].map((row, i) => (
             <div key={i} className="p-2 px-3 flex justify-between">

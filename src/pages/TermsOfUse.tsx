@@ -57,7 +57,7 @@ export const TermsOfUse: React.FC<PageProps> = ({ onNavigateHome }) => {
           </h2>
           <p>
             {lang === 'en'
-              ? `By accessing, browsing, or utilizing this website, you agree to comply with and be bound by these Terms of Use. This website is owned and operated by the official office of Sri M.C. Vijayananda Reddy for non-commercial public information, constituency updates, and welfare coordination.`
+              ? `By accessing, browsing, or utilizing this website, you agree to comply with and be bound by these Terms of Use. This website is owned and operated by the official office of Sri M.C. Vijayanandha Reddy for non-commercial public information, constituency updates, and welfare coordination.`
               : `ఈ వెబ్‌సైట్‌ను ఉపయోగించడం ద్వారా మీరు ఈ ఉపయోగ నిబంధనలకు కట్టుబడి ఉండటానికి అంగీకరిస్తున్నారు. శ్రీ ఎం.సి. విజయానంద రెడ్డి గారి కార్యాలయం ప్రజల సమాచారం మరియు సంక్షేమ సమన్వయం కొరకు దీనిని నిర్వహిస్తుంది.`}
           </p>
         </section>
@@ -72,13 +72,13 @@ export const TermsOfUse: React.FC<PageProps> = ({ onNavigateHome }) => {
             <li>
               <strong>{lang === 'en' ? 'Public & News Fair Use:' : 'సమాచార వినియోగం:'}</strong>{' '}
               {lang === 'en'
-                ? 'Photographs, press releases, speech excerpts, and YSRCP welfare scheme summaries published on this portal may be shared for journalistic, educational, or non-commercial public awareness purposes with appropriate attribution to Sri M.C. Vijayananda Reddy.'
+                ? 'Photographs, press releases, speech excerpts, and YSRCP welfare scheme summaries published on this portal may be shared for journalistic, educational, or non-commercial public awareness purposes with appropriate attribution to Sri M.C. Vijayanandha Reddy.'
                 : 'పోర్టల్‌లోని వార్తలు, ప్రసంగాలు మరియు ఫోటోలను పత్రికా అవసరాలు లేదా ప్రజా అవగాహన కొరకు తగిన క్రెడిట్‌తో ఉపయోగించవచ్చు.'}
             </li>
             <li>
               <strong>{lang === 'en' ? 'Commercial Prohibition:' : 'వాణిజ్య నిషేధం:'}</strong>{' '}
               {lang === 'en'
-                ? 'Unauthorized commercial exploitation, misleading endorsements, AI deepfake generation, or fraudulent impersonation of Sri M.C. Vijayananda Reddy or YSR Congress Party is strictly prohibited.'
+                ? 'Unauthorized commercial exploitation, misleading endorsements, AI deepfake generation, or fraudulent impersonation of Sri M.C. Vijayanandha Reddy or YSR Congress Party is strictly prohibited.'
                 : 'నాయకుని పేరును లేదా ఫోటోలను వాణిజ్యపరంగా దుర్వినియోగం చేయడం, తప్పుడు వ్యాపార ప్రకటనలకు ఉపయోగించడం ఖచ్చితంగా నిషేధించబడింది.'}
             </li>
           </ul>
@@ -134,7 +134,7 @@ export const TermsOfUse: React.FC<PageProps> = ({ onNavigateHome }) => {
             {lang === 'en' ? '6. Official Inquiries & Secretariat Contact' : '6. కార్యాలయ సంప్రదింపులు'}
           </h2>
           <div className="font-bold text-gray-900 space-y-0.5">
-            <div>Sri M.C. Vijayananda Reddy Office</div>
+            <div>Sri M.C. Vijayanandha Reddy Office</div>
             <div>{LEADER_INFO.officeAddress}</div>
             <div>Email: <a href={`mailto:${LEADER_INFO.email}`} className="text-[#0E4FAE] hover:underline">{LEADER_INFO.email}</a></div>
             <div>Phone: <a href={`tel:${LEADER_INFO.phone}`} className="text-[#0E4FAE] hover:underline">{LEADER_INFO.phone}</a></div>

@@ -17,28 +17,29 @@ function scrollToSection(anchor: string) {
 const NAV_LINKS = [
   { key: 'aboutLeader',     anchor: 'about' },
   { key: 'politicalCareer', anchor: 'career' },
+  { key: 'philanthropy',    anchor: 'philanthropy' },
   { key: 'constituency',    anchor: 'constituency' },
   { key: 'ysrSchemes',      anchor: null,       hasDropdown: true },
   { key: 'photoGallery',    anchor: 'gallery' },
   { key: 'videosMedia',     anchor: 'videos' },
   { key: 'inTheNews',       anchor: 'news' },
-  { key: 'contactOffice',   anchor: 'contact' },
 ] as const;
 
 interface NavBarProps {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
   onNavigateHome?: (anchor?: string) => void;
   currentPage?: string;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) => {
+export const NavBar: React.FC<NavBarProps> = ({ activeTab, setActiveTab, onNavigateHome, currentPage }) => {
   const { lang, toggleLang } = useLang();
-  const [activeKey, setActiveKey]   = useState<string>('aboutLeader');
   const [schemesOpen, setSchemesOpen] = useState(false);
   const [mobileOpen, setMobileOpen]   = useState(false);
   const schemesRef = useRef<HTMLDivElement>(null);
 
   const handleNavClick = (anchor?: string, key?: string) => {
-    if (key) setActiveKey(key);
+    if (key) setActiveTab(key);
     setSchemesOpen(false);
     setMobileOpen(false);
     if (onNavigateHome) {
@@ -61,14 +62,13 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) =
     <nav className="bg-[#0E4FAE] border-b border-[#0a3d8a] text-white sticky top-0 z-40 shadow-sm">
       <div className="max-w-[1200px] mx-auto flex items-center justify-between">
 
-        {/* Home icon & party logo */}
+        {/* Home icon */}
         <div className="flex items-center">
           <button
-            onClick={() => handleNavClick('top', 'home')}
-            className="bg-[#111] hover:bg-black px-3 py-2 flex items-center justify-center transition-colors border-r border-white/10 flex-shrink-0 gap-2 cursor-pointer"
+            onClick={() => handleNavClick('top', 'aboutLeader')}
+            className="bg-[#111] hover:bg-black px-4 py-2.5 flex items-center justify-center transition-colors border-r border-white/10 flex-shrink-0 cursor-pointer"
             title={lang === 'en' ? 'Back to top' : 'పైకి వెళ్ళండి'}
           >
-            <img src="/logo.png" alt="YSRCP Logo" className="h-5 w-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             <span className="text-base">🏠</span>
           </button>
 
@@ -76,7 +76,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) =
           <div className="hidden lg:flex items-center">
             {NAV_LINKS.map(({ key, anchor, hasDropdown }) => {
               const label = tx(t.nav[key as keyof typeof t.nav], lang);
-              const isActive = currentPage === 'home' && activeKey === key;
+              const isActive = currentPage === 'home' && activeTab === key;
               const isContact = key === 'contactOffice';
               const isDownload = key === 'downloadProfile';
 
@@ -84,7 +84,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) =
                 return (
                   <div key={key} ref={schemesRef} className="relative">
                     <button
-                      onClick={() => { setSchemesOpen(!schemesOpen); setActiveKey(key); }}
+                      onClick={() => { setSchemesOpen(!schemesOpen); setActiveTab(key); }}
                       className={`px-3 py-2.5 text-[13px] font-bold tracking-wide transition-colors whitespace-nowrap flex items-center gap-1 border-r border-white/10 cursor-pointer ${
                         isActive || schemesOpen ? 'bg-[#0B8F45] text-white' : 'hover:bg-white/15 text-white/95'
                       }`}
@@ -102,7 +102,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) =
                           <a
                             key={idx}
                             href="#"
-                            onClick={(e) => { e.preventDefault(); handleNavClick('about', 'ysrSchemes'); }}
+                            onClick={(e) => { e.preventDefault(); handleNavClick('ysrSchemes', 'ysrSchemes'); }}
                             className="flex items-start gap-3 px-3 py-2.5 hover:bg-blue-50 border-b border-[#f0f0f0] last:border-b-0 group transition-colors"
                           >
                             <span className="text-lg flex-shrink-0 mt-0.5">{scheme.icon}</span>
@@ -117,7 +117,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) =
                           </a>
                         ))}
                         <div className="bg-[#f9f9f9] px-3 py-2 border-t border-[#E3E3E3] text-right">
-                          <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('about', 'ysrSchemes'); }}
+                          <a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('ysrSchemes', 'ysrSchemes'); }}
                             className="text-[11px] font-bold text-[#cc0000] hover:underline">
                             {tx(t.schemes.viewAll, lang)}
                           </a>
@@ -220,7 +220,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) =
                     }
                   }}
                   className={`px-3 py-2 text-sm font-semibold rounded flex items-center justify-between w-full text-left cursor-pointer ${
-                    currentPage === 'home' && activeKey === key ? 'bg-[#0B8F45] text-white' : 'hover:bg-white/10 text-white'
+                    currentPage === 'home' && activeTab === key ? 'bg-[#0B8F45] text-white' : 'hover:bg-white/10 text-white'
                   }`}
                 >
                   <span>{label}</span>
@@ -230,7 +230,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigateHome, currentPage }) =
                   <div className="ml-4 flex flex-col gap-0.5 border-l-2 border-[#0B8F45] pl-3">
                     {t.schemes.items.map((scheme, idx) => (
                       <a key={idx} href="#"
-                        onClick={(e) => { e.preventDefault(); handleNavClick('about', 'ysrSchemes'); }}
+                        onClick={(e) => { e.preventDefault(); handleNavClick('ysrSchemes', 'ysrSchemes'); }}
                         className="py-1.5 text-xs text-white/90 hover:text-white flex items-center gap-2">
                         <span>{scheme.icon}</span>
                         <span>{scheme[lang].label}</span>

@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
           <div className="relative w-16 h-16 lg:w-20 lg:h-20 rounded-full border-2 border-white overflow-hidden shadow-lg flex-shrink-0 bg-white">
             <img
               src={vijya2}
-              alt="M.C. Vijayananda Reddy"
+              alt="M.C. Vijayanandha Reddy (VNR)"
               className="w-full h-full object-cover object-top"
               onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
             />
@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
               {lang === 'en' ? 'Official Leader Profile' : 'అధికారిక నాయకుని పేజీ'}
             </div>
             <h1 className="text-sm lg:text-base font-black text-white uppercase tracking-tight leading-tight">
-              M.C. VIJAYANANDA REDDY
+              M.C. VIJAYANANDHA REDDY
             </h1>
             <div className="text-[11px] font-bold text-white/90 mt-0.5 flex items-center gap-1.5">
               <span className="bg-[#0B8F45] text-white text-[9px] px-1.5 py-0.5 rounded font-extrabold uppercase">

@@ -4,7 +4,7 @@ import { LEADER_INFO, SOCIAL_LINKS } from '../data/profileData';
 import { t } from '../data/translations';
 
 interface PageProps {
-  onNavigateHome: () => void;
+  onNavigateHome: (anchor?: string) => void;
   onNavigatePage: (page: 'home' | 'privacy' | 'terms' | 'sitemap') => void;
   onOpenContact: () => void;
 }
@@ -17,14 +17,7 @@ export const Sitemap: React.FC<PageProps> = ({ onNavigateHome, onNavigatePage, o
   }, []);
 
   const handleSectionClick = (anchorId: string) => {
-    onNavigateHome();
-    setTimeout(() => {
-      const el = document.getElementById(anchorId);
-      if (el) {
-        const top = el.getBoundingClientRect().top + window.scrollY - 56;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }, 100);
+    onNavigateHome(anchorId);
   };
 
   return (
@@ -45,7 +38,7 @@ export const Sitemap: React.FC<PageProps> = ({ onNavigateHome, onNavigatePage, o
           </p>
         </div>
         <button
-          onClick={onNavigateHome}
+          onClick={() => onNavigateHome()}
           className="btn-primary text-xs font-bold px-4 py-2 flex items-center gap-1.5 rounded-xs shadow-2xs"
         >
           <span>←</span>
@@ -65,7 +58,7 @@ export const Sitemap: React.FC<PageProps> = ({ onNavigateHome, onNavigatePage, o
           <ul className="space-y-2 text-xs">
             <li>
               <button onClick={() => handleSectionClick('about')} className="text-blue-700 hover:text-[#0B8F45] hover:underline font-bold flex items-center gap-1">
-                <span>»</span> About M.C. Vijayananda Reddy
+                <span>»</span> About M.C. Vijayanandha Reddy
               </button>
               <div className="text-[11px] text-gray-500 ml-3">Early life, background & public service journey</div>
             </li>
@@ -197,7 +190,7 @@ export const Sitemap: React.FC<PageProps> = ({ onNavigateHome, onNavigatePage, o
               <span>{lang === 'en' ? 'Chittoor Office Contact' : 'కార్యాలయ వివరాలు'}</span>
             </h2>
             <div className="text-xs space-y-1 text-gray-700">
-              <div className="font-bold text-gray-900">Sri M.C. Vijayananda Reddy Office</div>
+              <div className="font-bold text-gray-900">Sri M.C. Vijayanandha Reddy Office</div>
               <div>{LEADER_INFO.officeAddress}</div>
               <div>Phone: <a href={`tel:${LEADER_INFO.phone}`} className="text-[#0E4FAE] font-bold">{LEADER_INFO.phone}</a></div>
               <div>Email: <a href={`mailto:${LEADER_INFO.email}`} className="text-[#0E4FAE] font-bold">{LEADER_INFO.email}</a></div>

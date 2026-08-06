@@ -89,7 +89,7 @@ export const PrivacyPolicy: React.FC<PageProps> = ({ onNavigateHome }) => {
           </p>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>{lang === 'en' ? 'Processing constituency grievances and welfare representation requests.' : 'నియోజకవర్గ సమస్యలు మరియు సంక్షేమ వినతుల పరిశీలన.'}</li>
-            <li>{lang === 'en' ? 'Scheduling appointments with Sri M.C. Vijayananda Reddy at the Chittoor Office.' : 'చిత్తూరు కార్యాలయంలో శ్రీ విజయానంద రెడ్డి గారి అపాయింట్‌మెంట్లు ఖరారు చేయడం.'}</li>
+            <li>{lang === 'en' ? 'Scheduling appointments with Sri M.C. Vijayanandha Reddy at the Chittoor Office.' : 'చిత్తూరు కార్యాలయంలో శ్రీ విజయానంద రెడ్డి గారి అపాయింట్‌మెంట్లు ఖరారు చేయడం.'}</li>
             <li>{lang === 'en' ? 'Providing official announcements regarding YSRCP welfare initiatives and public rallies.' : 'వైఎస్సార్సీపీ సంక్షేమ పథకాలు మరియు బహిరంగ సమావేశాల అధికారిక సమాచారం అందించడం.'}</li>
           </ul>
         </section>
@@ -149,7 +149,7 @@ export const PrivacyPolicy: React.FC<PageProps> = ({ onNavigateHome }) => {
               : 'గోప్యతా విధానం మరియు వినతుల కొరకు కార్యాలయాన్ని సంప్రదించండి:'}
           </p>
           <div className="font-bold text-gray-900 mt-2 space-y-0.5">
-            <div>Sri M.C. Vijayananda Reddy Constituency Office</div>
+            <div>Sri M.C. Vijayanandha Reddy Constituency Office</div>
             <div>{LEADER_INFO.officeAddress}</div>
             <div>Email: <a href={`mailto:${LEADER_INFO.email}`} className="text-[#0E4FAE] hover:underline">{LEADER_INFO.email}</a></div>
             <div>Phone: <a href={`tel:${LEADER_INFO.phone}`} className="text-[#0E4FAE] hover:underline">{LEADER_INFO.phone}</a></div>

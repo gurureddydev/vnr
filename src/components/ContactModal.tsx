@@ -63,7 +63,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               Message Submitted Successfully!
             </h3>
             <p className="text-xs text-gray-600">
-              Thank you for reaching out. The Chittoor Constituency office of M.C. Vijayananda Reddy will review your query and respond promptly.
+              Thank you for reaching out. The Chittoor Constituency office of M.C. Vijayanandha Reddy (VNR) will review your query and respond promptly.
             </p>
           </div>
         ) : (

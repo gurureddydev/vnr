@@ -16,7 +16,7 @@ export const Breadcrumb: React.FC = () => {
           MLAs Candidate
         </a>
         <span className="text-gray-400">»</span>
-        <span className="text-gray-900 font-bold">M.C. Vijayananda Reddy</span>
+        <span className="text-gray-900 font-bold">M.C. Vijayanandha Reddy (VNR)</span>
       </div>
     </div>
   );
@@ -29,7 +29,7 @@ export const PageHeaderStrip: React.FC = () => {
         <div className="flex items-center gap-2.5">
           <div className="w-1.5 h-6 bg-[#0B8F45] rounded-xs" />
           <h1 className="text-base sm:text-lg font-extrabold text-[#111111] uppercase tracking-wide">
-            Leader Profile – M.C. Vijayananda Reddy
+            Leader Profile – M.C. Vijayanandha Reddy (VNR)
           </h1>
         </div>
       </div>

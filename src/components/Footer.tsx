@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
               YSR Congress Party is committed to welfare governance, agricultural revival, rural empowerment, and equal development for all sections of society in Andhra Pradesh.
             </p>
             <div className="text-[11px] text-emerald-300 font-bold">
-              M.C. Vijayananda Reddy – Chittoor
+              M.C. Vijayanandha Reddy (VNR) – Chittoor
             </div>
           </div>
 
@@ -94,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
               Chittoor Office
             </h4>
             <div className="text-xs text-blue-100 space-y-1.5 leading-relaxed">
-              <div className="font-bold text-white">M.C. Vijayananda Reddy Office</div>
+              <div className="font-bold text-white">M.C. Vijayanandha Reddy (VNR) Office</div>
               <div>YSRCP Party Office Chittoor</div>
               <div>Ettiyamma Temple Street, Konga reddy palli</div>
               <div className="pt-1 text-white font-semibold">📞 +91 81250 26072</div>
@@ -109,7 +109,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
       <div className="bg-black/30 border-t border-white/15 py-3 px-3">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-blue-200">
           <div className="text-center md:text-left">
-            © 2024 M.C. Vijayananda Reddy – YSRCP Chittoor Assembly. All Rights Reserved.
+            © 2024 M.C. Vijayanandha Reddy (VNR) – YSRCP Chittoor Assembly. All Rights Reserved.
           </div>
 
           {/* Powered by Navhigh Technologies */}

@@ -86,14 +86,17 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ onContactClick }) => {
         </div>
 
         {/* Leader Name */}
-        <h2 className="font-extrabold text-base sm:text-lg text-[#111111] leading-tight mb-1">
+        <h2 className="font-extrabold text-base sm:text-lg text-[#111111] leading-tight mb-0.5">
           Sri {LEADER_INFO.name}
         </h2>
+        <div className="text-[11px] font-extrabold text-[#0B8F45] mb-1 tracking-wider">
+          ( {LEADER_INFO.moniker} )
+        </div>
         <div className="text-xs font-bold text-[#0E4FAE] mb-2">
           {LEADER_INFO.status} ({LEADER_INFO.constituency})
         </div>
         <p className="text-[11px] text-gray-600 leading-snug mb-3 px-2">
-          Senior YSRCP Leader & Assembly In-Charge for Chittoor Constituency. Committed to public welfare, rural empowerment, and sustainable development.
+          Jananeta (People&apos;s Leader) &amp; Assembly In-Charge for Chittoor Constituency. Philanthropist, Former APSRTC Vice Chairman, and close ally of Y.S. Jagan Mohan Reddy.
         </p>
 
         {/* Badges */}
@@ -103,6 +106,9 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ onContactClick }) => {
           </span>
           <span className="bg-[#0E4FAE] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-xs tracking-wider uppercase shadow-xs">
             CHITTOOR MLA CANDIDATE
+          </span>
+          <span className="bg-[#cc6600] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-xs tracking-wider uppercase shadow-xs">
+            JANANETA
           </span>
         </div>
       </div>
@@ -161,7 +167,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ onContactClick }) => {
               Share Leader Profile
             </h3>
             <p className="text-xs text-gray-600 mb-3">
-              Share M.C. Vijayananda Reddy's official political profile with supporters and voters:
+              Share M.C. Vijayanandha Reddy's (VNR) official political profile with supporters and voters:
             </p>
             <div className="flex gap-2 mb-4">
               <input
@@ -179,7 +185,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ onContactClick }) => {
             </div>
             <div className="flex justify-center gap-3 pt-2 border-t border-gray-100">
               <a
-                href={`https://api.whatsapp.com/send?text=${encodeURIComponent('Check out M.C. Vijayananda Reddy profile: ' + window.location.href)}`}
+                href={`https://api.whatsapp.com/send?text=${encodeURIComponent('Check out M.C. Vijayanandha Reddy (VNR) profile: ' + window.location.href)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="bg-[#25D366] text-white text-xs font-bold px-3 py-1.5 rounded flex items-center gap-1 hover:opacity-90"

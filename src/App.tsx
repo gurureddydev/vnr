@@ -15,9 +15,25 @@ import { Sitemap } from './pages/Sitemap';
 
 type PageRoute = 'home' | 'privacy' | 'terms' | 'sitemap';
 
+const mapAnchorToTab = (anchor?: string): string => {
+  if (!anchor) return 'aboutLeader';
+  switch (anchor.toLowerCase()) {
+    case 'about': return 'aboutLeader';
+    case 'career': return 'politicalCareer';
+    case 'philanthropy': return 'philanthropy';
+    case 'constituency': return 'constituency';
+    case 'ysrschemes': return 'ysrSchemes';
+    case 'gallery': return 'photoGallery';
+    case 'videos': return 'videosMedia';
+    case 'news': return 'inTheNews';
+    default: return 'aboutLeader';
+  }
+};
+
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<PageRoute>('home');
+  const [activeTab, setActiveTab] = useState<string>('aboutLeader');
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -39,19 +55,9 @@ export default function App() {
   const handleNavigateHome = (anchor?: string) => {
     setCurrentPage('home');
     window.location.hash = '';
-    if (anchor) {
-      setTimeout(() => {
-        if (anchor === 'top') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          const el = document.getElementById(anchor);
-          if (el) {
-            const top = el.getBoundingClientRect().top + window.scrollY - 56;
-            window.scrollTo({ top, behavior: 'smooth' });
-          }
-        }
-      }, 100);
-    }
+    const tab = mapAnchorToTab(anchor);
+    setActiveTab(tab);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -63,7 +69,12 @@ export default function App() {
           <Header />
 
           {/* ─── PARTY NAVIGATION STRIP ─── */}
-          <NavBar onNavigateHome={handleNavigateHome} currentPage={currentPage} />
+          <NavBar 
+            activeTab={activeTab} 
+            setActiveTab={setActiveTab} 
+            onNavigateHome={handleNavigateHome} 
+            currentPage={currentPage} 
+          />
 
           {/* ─── REALTIME NEWS TICKER ─── */}
           <NewsTicker />
@@ -82,7 +93,7 @@ export default function App() {
                   </div>
 
                   {/* CENTER COLUMN: Biography, Timeline, Gallery, Videos, News */}
-                  <CenterColumn />
+                  <CenterColumn activeTab={activeTab} />
 
                   {/* RIGHT COLUMN: Info Cards, Election Details, Positions */}
                   <RightSidebar onContactClick={() => setIsContactOpen(true)} />
@@ -101,7 +112,7 @@ export default function App() {
 
           {currentPage === 'sitemap' && (
             <Sitemap
-              onNavigateHome={() => navigateTo('home')}
+              onNavigateHome={handleNavigateHome}
               onNavigatePage={(page) => navigateTo(page)}
               onOpenContact={() => setIsContactOpen(true)}
             />
