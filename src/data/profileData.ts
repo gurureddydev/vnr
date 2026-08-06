@@ -1,6 +1,6 @@
-import vijya1 from '../imports/vijya1.jpeg';
-import vijya2 from '../imports/vijya2.jpeg';
-import vijya3 from '../imports/vijya3.jpeg';
+import vijya1 from '../vijya1.jpeg';
+import vijya2 from '../vijya2.jpeg';
+import vijya3 from '../vijya3.jpeg';
 
 export interface CareerItem {
   year: string;
