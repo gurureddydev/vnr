@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
             src={headerBanner}
             alt="YSR Congress Party"
             className="w-full h-auto object-cover block max-h-[140px] md:max-h-[160px]"
-            onError={(e) => { (e.target as HTMLImageElement).src = '/ysrcongress.jpg'; }}
+            onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}ysrcongress.jpg`; }}
           />
         </div>
 
@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
               src={vijya2}
               alt="M.C. Vijayanandha Reddy (VNR)"
               className="w-full h-full object-cover object-top"
-              onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+              onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}vijya2.jpeg`; }}
             />
           </div>
           <div>

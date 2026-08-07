@@ -370,7 +370,7 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
                       src={milestoneImage} 
                       alt={item[lang].title} 
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                      onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                      onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}vijya2.jpeg`; }}
                     />
                     <div className="absolute top-2.5 left-2.5 bg-[#0E4FAE] text-white text-[10px] font-extrabold px-2.5 py-1 shadow-md uppercase tracking-wider">
                       {years[index]}
@@ -573,7 +573,7 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
                     alt={t.gallery.photos[idx]?.[lang] ?? photo.label}
                     className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-103"
                     loading="lazy"
-                    onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                    onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}vijya2.jpeg`; }}
                   />
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="bg-white/95 text-[#0E4FAE] text-xs font-bold px-3 py-1.5 rounded-xs shadow-lg flex items-center gap-1.5">
@@ -664,7 +664,7 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
                       alt={lang === 'en' ? video.title : video.titleTe}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
                       loading="lazy"
-                      onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                      onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}vijya2.jpeg`; }}
                     />
                     {/* Play Button Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
@@ -708,7 +708,7 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
                     alt={item[lang].headline}
                     className="w-full h-full object-contain"
                     loading="lazy"
-                    onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                    onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}vijya2.jpeg`; }}
                   />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -782,7 +782,7 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
                 src={selectedPhoto.imageUrl}
                 alt={selectedPhoto.label}
                 className="max-h-[70vh] w-auto object-contain"
-                onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}vijya2.jpeg`; }}
               />
             </div>
             <div className="p-3 bg-gray-100 text-xs text-gray-700 flex justify-between items-center border-t border-gray-200">
@@ -813,7 +813,7 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
                   src={GALLERY_PHOTOS[selectedNewsIdx % GALLERY_PHOTOS.length].imageUrl}
                   alt={selectedNews[lang].headline}
                   className="w-full h-full object-contain"
-                  onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                  onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}vijya2.jpeg`; }}
                 />
               </div>
               <p className="text-xs text-gray-700 leading-relaxed">{selectedNews[lang].summary}</p>

@@ -25,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
           {/* Col 1: About YSRCP */}
           <div>
             <div className="flex items-center gap-2 border-b border-white/20 pb-2 mb-3">
-              <img src="/logo.png" alt="YSRCP Logo" className="h-7 w-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="YSRCP Logo" className="h-7 w-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
               <h4 className="text-xs font-bold uppercase tracking-wider text-white">
                 YSR Congress Party
               </h4>
@@ -123,7 +123,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
             <span className="text-[11px] font-medium text-blue-200 group-hover:text-white">Powered by</span>
             <div className="flex items-center gap-1.5 font-bold tracking-wide text-xs">
               <img
-                src="/navhightech.png"
+                src={`${import.meta.env.BASE_URL}navhightech.png`}
                 alt="Navhigh Technologies"
                 className="h-5 w-auto object-contain block max-w-[120px]"
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}

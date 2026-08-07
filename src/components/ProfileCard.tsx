@@ -52,7 +52,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ onContactClick }) => {
                 src={activePhoto.src}
                 alt={LEADER_INFO.name}
                 className="w-full h-full object-cover object-[center_15%] transition-transform duration-500 group-hover:scale-105"
-                onError={(e) => { (e.target as HTMLImageElement).src = '/vijya2.jpeg'; }}
+                onError={(e) => { (e.target as HTMLImageElement).src = `${import.meta.env.BASE_URL}vijya2.jpeg`; }}
               />
             </div>
           </div>
