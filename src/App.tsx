@@ -35,6 +35,8 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<PageRoute>('home');
   const [activeTab, setActiveTab] = useState<string>('aboutLeader');
 
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.toLowerCase();
@@ -42,9 +44,21 @@ export default function App() {
       else if (hash === '#terms') setCurrentPage('terms');
       else if (hash === '#sitemap') setCurrentPage('sitemap');
     };
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
     handleHashChange();
+    handleResize();
+
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const navigateTo = (page: PageRoute) => {
@@ -57,7 +71,19 @@ export default function App() {
     window.location.hash = '';
     const tab = mapAnchorToTab(anchor);
     setActiveTab(tab);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    if (window.innerWidth < 768 && anchor) {
+      // Find the element on mobile and scroll to it smoothly
+      setTimeout(() => {
+        const el = document.getElementById(anchor);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 56; // 56px navbar offset
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -93,7 +119,7 @@ export default function App() {
                   </div>
 
                   {/* CENTER COLUMN: Biography, Timeline, Gallery, Videos, News */}
-                  <CenterColumn activeTab={activeTab} />
+                  <CenterColumn activeTab={activeTab} isMobile={isMobile} />
 
                   {/* RIGHT COLUMN: Info Cards, Election Details, Positions */}
                   <RightSidebar onContactClick={() => setIsContactOpen(true)} />

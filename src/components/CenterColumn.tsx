@@ -250,9 +250,10 @@ const PHILANTHROPY = {
 
 interface CenterColumnProps {
   activeTab: string;
+  isMobile: boolean;
 }
 
-export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
+export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab, isMobile }) => {
   const { lang } = useLang();
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryPhoto | null>(null);
   const [selectedNewsIdx, setSelectedNewsIdx] = useState<number | null>(null);
@@ -264,8 +265,8 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
   return (
     <div className="flex-1 min-w-0 flex flex-col gap-3.5 w-full">
 
-      {/* ─── ABOUT / BIOGRAPHY TAB ─── */}
-      {activeTab === 'aboutLeader' && (
+      {/* ─── ABOUT / BIOGRAPHY SECTION ─── */}
+      {(isMobile || activeTab === 'aboutLeader') && (
         <article id="about" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
           {/* Section header */}
           <header className="section-title bg-[#0E4FAE] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide flex items-center justify-between">
@@ -345,8 +346,8 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
         </article>
       )}
 
-      {/* ─── POLITICAL CAREER TIMELINE TAB ─── */}
-      {activeTab === 'politicalCareer' && (
+      {/* ─── POLITICAL CAREER TIMELINE SECTION ─── */}
+      {(isMobile || activeTab === 'politicalCareer') && (
         <div id="career" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
           <header className="section-title bg-[#0E4FAE] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide">
             {tx(t.career.sectionTitle, lang)}
@@ -403,8 +404,8 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
         </div>
       )}
 
-      {/* ─── PHILANTHROPIC ACTIVITIES TAB ─── */}
-      {activeTab === 'philanthropy' && (
+      {/* ─── PHILANTHROPIC ACTIVITIES SECTION ─── */}
+      {(isMobile || activeTab === 'philanthropy') && (
         <div id="philanthropy" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
           <header className="section-title bg-[#0B8F45] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide flex items-center justify-between">
             <span>{PHILANTHROPY.sectionTitle[lang]}</span>
@@ -429,9 +430,9 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
         </div>
       )}
 
-      {/* ─── CHITTOOR CONSTITUENCY PORTAL TAB ─── */}
-      {activeTab === 'constituency' && (
-        <div id="constituency-portal" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
+      {/* ─── CHITTOOR CONSTITUENCY PORTAL ─── */}
+      {(isMobile || activeTab === 'constituency') && (
+        <div id="constituency" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
           <header className="section-title bg-[#0E4FAE] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide">
             {lang === 'en' ? 'Chittoor Assembly Constituency Portal' : 'చిత్తూరు అసెంబ్లీ నియోజకవర్గ సమాచారం'}
           </header>
@@ -504,9 +505,9 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
         </div>
       )}
 
-      {/* ─── YSR WELFARE SCHEMES TAB ─── */}
-      {activeTab === 'ysrSchemes' && (
-        <div id="welfare-schemes" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
+      {/* ─── YSR WELFARE SCHEMES SECTION ─── */}
+      {(isMobile || activeTab === 'ysrSchemes') && (
+        <div id="ysrSchemes" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
           <header className="section-title bg-[#0B8F45] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide">
             {tx(t.schemes.header, lang)}
           </header>
@@ -553,8 +554,8 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
         </div>
       )}
 
-      {/* ─── PHOTO GALLERY TAB ─── */}
-      {activeTab === 'photoGallery' && (
+      {/* ─── PHOTO GALLERY SECTION ─── */}
+      {(isMobile || activeTab === 'photoGallery') && (
         <div id="gallery" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
           <header className="section-title bg-[#0E4FAE] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide flex items-center justify-between">
             <span>{tx(t.gallery.sectionTitle, lang)}</span>
@@ -594,8 +595,8 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
         </div>
       )}
 
-      {/* ─── VIDEOS (YOUTUBE) TAB ─── */}
-      {activeTab === 'videosMedia' && (
+      {/* ─── VIDEOS (YOUTUBE) SECTION ─── */}
+      {(isMobile || activeTab === 'videosMedia') && (
         <div id="videos" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
           <header className="section-title bg-[#0E4FAE] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -692,8 +693,8 @@ export const CenterColumn: React.FC<CenterColumnProps> = ({ activeTab }) => {
         </div>
       )}
 
-      {/* ─── RECENT NEWS TAB ─── */}
-      {activeTab === 'inTheNews' && (
+      {/* ─── RECENT NEWS SECTION ─── */}
+      {(isMobile || activeTab === 'inTheNews') && (
         <div id="news" className="widget-box bg-white border border-[#E3E3E3] shadow-xs">
           <header className="section-title bg-[#0E4FAE] text-white text-xs sm:text-sm font-bold px-3 py-2 uppercase tracking-wide flex items-center justify-between">
             <span>{tx(t.news.sectionTitle, lang)}</span>
