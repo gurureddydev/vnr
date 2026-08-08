@@ -1,7 +1,14 @@
 {
-  "description": "Showcase detailed profiles of political leaders, maintaining consistent branding and design with the YSR Congress Party website for user engagement.",
+  "title": "M.C. Vijayanandha Reddy (VNR) – YSRCP Leader, Jananeta, Chittoor Assembly",
+  "description": "Official profile of M.C. Vijayanandha Reddy (VNR), YSRCP MLA Candidate for Chittoor Assembly. Former APSRTC Vice Chairman, Jananeta (People's Leader), philanthropist, and close ally of Y.S. Jagan Mohan Reddy. Known for Jagananna Canteens, COVID relief, and community service in Chittoor.",
   "robots": {
-    "index": false
+    "index": true
+  },
+  "icons": {
+    "icon": "/logo.png"
+  },
+  "openGraph": {
+    "image": "/logo.png"
   },
   "accessibility": {
     "addBypassLinks": false,
